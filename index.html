@@ -1,70 +1,57 @@
 <!DOCTYPE html>
-<!--
-  ============================================================================
-  PERSONAL SITE — index.html
-  Metti questo file nella root di un repository chiamato ESATTAMENTE
-  "tuo-username.github.io" e sarà online su https://tuo-username.github.io
-
-  DA COMPLETARE (cerca i segnaposto {{...}} qui sotto):
-    campanellogabriele99@gmail.com          la tua email
-    gcampanello    il tuo username GitHub
-    {{SCHOLAR_URL}}    link Google Scholar   (rimuovi la riga se non ce l'hai)
-    {{ORCID_URL}}      link ORCID            (rimuovi la riga se non ce l'hai)
-    {{LINKEDIN_URL}}   link LinkedIn         (rimuovi la riga se non ce l'hai)
-    {{CV_URL}}         link al PDF del CV     (es. /cv.pdf caricato nel repo)
-
-  DA VERIFICARE (li ho precompilati ma controlla che siano giusti):
-    - cognome nel titolo (h1) e nel tag <title>
-    - gli anni nella sezione Education
-    - la riga sul BSc (aggiungila/correggila)
-  ============================================================================
--->
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Gabriele Campanello — Physicist</title>
 <meta name="description" content="Physicist working on continuously monitored open quantum systems, quantum trajectories, and quantum metrology. MSc in Physics, University of Milan." />
+<meta name="theme-color" content="#0B0D12" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Spectral:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
 <style>
   :root {
-    --paper:   #FBFAF6;
-    --ink:     #16171D;
-    --muted:   #5E606A;
-    --faint:   #8C8E98;
-    --rule:    #E5E2D8;
-    --accent:  #5A43D6;
-    --accent-soft: rgba(90, 67, 214, 0.10);
-    --slate:   #2C3B52;
-    --serif: "Newsreader", Georgia, serif;
+    --void:        #0B0D12;
+    --panel:       #0E1118;
+    --bone:        #E8E6E1;
+    --dim:         #9DA0A9;
+    --faint:       #82858F;   /* 5.3:1 on --void — the floor for readable secondary text */
+    --teal:        #34D1C4;
+    --magenta:     #E0457B;
+    --rule:        rgba(232, 230, 225, 0.10);
+    --rule-strong: rgba(232, 230, 225, 0.18);
+
+    --serif: "Spectral", Georgia, serif;
     --sans:  "IBM Plex Sans", system-ui, sans-serif;
     --mono:  "IBM Plex Mono", ui-monospace, monospace;
-    --maxw: 940px;
+    --maxw: 1000px;
   }
 
   * { box-sizing: border-box; }
 
-  html { -webkit-text-size-adjust: 100%; }
+  html {
+    color-scheme: dark;
+    -webkit-text-size-adjust: 100%;
+  }
 
   body {
     margin: 0;
-    background: var(--paper);
-    color: var(--ink);
+    background: var(--void);
+    color: var(--bone);
     font-family: var(--sans);
     font-size: 17px;
-    line-height: 1.6;
+    line-height: 1.65;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
   }
 
-  a { color: var(--accent); text-decoration: none; }
+  ::selection { background: var(--teal); color: var(--void); }
+
+  a { color: var(--teal); text-decoration: none; }
   a:hover { text-decoration: underline; text-underline-offset: 3px; }
   a:focus-visible {
-    outline: 2px solid var(--accent);
+    outline: 2px solid var(--teal);
     outline-offset: 3px;
-    border-radius: 2px;
   }
 
   .wrap {
@@ -73,110 +60,124 @@
     padding: 0 32px;
   }
 
-  /* ---------- eyebrow / mono labels ---------- */
-  .eyebrow {
-    font-family: var(--mono);
-    font-size: 12.5px;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin: 0;
-  }
+  /* ============================= hero ============================= */
+  .hero { padding-top: clamp(72px, 11vh, 130px); }
 
-  /* ---------- hero ---------- */
-  .hero {
-    position: relative;
-    overflow: hidden;
-    border-bottom: 1px solid var(--rule);
+  .kicker {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--dim);
+    margin: 0 0 22px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
   }
-  .hero .wrap {
-    position: relative;
-    padding-top: 96px;
-    padding-bottom: 80px;
+  .kicker::before {
+    content: "";
+    width: 26px;
+    height: 1px;
+    background: var(--teal);
+    flex: none;
   }
-  .hero-graphic {
-    position: absolute;
-    top: 40px;
-    right: -40px;
-    width: 62%;
-    max-width: 620px;
-    opacity: 0.9;
-    pointer-events: none;
-    z-index: 0;
-  }
-  .hero-text { position: relative; z-index: 1; max-width: 620px; }
 
   .name {
     font-family: var(--serif);
     font-weight: 500;
-    font-size: clamp(2.7rem, 7vw, 4.4rem);
-    line-height: 1.02;
-    letter-spacing: -0.015em;
-    margin: 16px 0 22px;
+    font-size: clamp(2.9rem, 8.2vw, 5.1rem);
+    line-height: 0.98;
+    letter-spacing: -0.02em;
+    margin: 0 0 28px;
   }
-  .name em { font-style: italic; font-weight: 400; color: var(--slate); }
 
   .lede {
-    font-size: clamp(1.05rem, 2.4vw, 1.28rem);
-    line-height: 1.55;
-    color: var(--muted);
-    max-width: 34em;
-    margin: 0 0 32px;
+    font-size: clamp(1.06rem, 2.3vw, 1.24rem);
+    line-height: 1.6;
+    color: var(--dim);
+    max-width: 36em;
+    margin: 0 0 34px;
   }
-  .lede strong { color: var(--ink); font-weight: 500; }
+  .lede strong { color: var(--bone); font-weight: 500; }
 
   .links {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px 22px;
+    gap: 10px 26px;
     font-family: var(--mono);
     font-size: 13.5px;
-    align-items: center;
   }
   .links a {
-    display: inline-flex;
-    align-items: center;
-    gap: 7px;
-    color: var(--ink);
-    border-bottom: 1px solid transparent;
-    padding-bottom: 1px;
+    color: var(--bone);
+    border-bottom: 1px solid var(--rule-strong);
+    padding-bottom: 2px;
+    transition: color 0.15s, border-color 0.15s;
   }
-  .links a:hover { text-decoration: none; border-bottom-color: var(--accent); color: var(--accent); }
-  .links .dot { width: 5px; height: 5px; background: var(--accent); border-radius: 50%; }
+  .links a:hover {
+    text-decoration: none;
+    color: var(--teal);
+    border-bottom-color: var(--teal);
+  }
 
-  /* ---------- section grid ---------- */
-  section { border-bottom: 1px solid var(--rule); }
+  /* ======================= instrument readout ======================= */
+  .readout { margin: 60px 0 0; }
+
+  .screen {
+    position: relative;
+    height: clamp(186px, 24vw, 250px);
+    border: 1px solid var(--rule-strong);
+    background:
+      radial-gradient(120% 140% at 50% 0%, rgba(52, 209, 196, 0.05), transparent 62%),
+      var(--panel);
+    overflow: hidden;
+  }
+  .screen canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+    -webkit-mask-image: linear-gradient(to right, transparent 0, #000 5%);
+            mask-image: linear-gradient(to right, transparent 0, #000 5%);
+  }
+
+  .caption {
+    font-family: var(--mono);
+    font-size: 12px;
+    line-height: 1.65;
+    color: var(--faint);
+    margin: 14px 0 0;
+    max-width: 74ch;
+  }
+  .caption b { color: var(--dim); font-weight: 400; }
+
+  /* =========================== sections =========================== */
+  main { margin-top: clamp(80px, 12vh, 140px); }
+
+  section { border-top: 1px solid var(--rule); }
+
   .grid {
     display: grid;
-    grid-template-columns: 200px 1fr;
-    gap: 40px;
-    padding: 64px 0;
-  }
-  .grid > .label { padding-top: 4px; }
-  .label .eyebrow { color: var(--faint); }
-  .num {
-    font-family: var(--mono);
-    font-size: 12.5px;
-    color: var(--accent);
-    display: block;
-    margin-bottom: 8px;
+    grid-template-columns: 190px minmax(0, 1fr);
+    gap: 52px;
+    padding: 72px 0;
+    align-items: start;
   }
 
   h2 {
     font-family: var(--serif);
-    font-weight: 500;
-    font-size: 1.6rem;
-    line-height: 1.2;
-    margin: 0 0 18px;
+    font-weight: 400;
+    font-size: 1.42rem;
+    line-height: 1.25;
     letter-spacing: -0.01em;
+    color: var(--bone);
+    margin: 0;
+    padding-top: 5px;
   }
-  .body p { margin: 0 0 16px; color: #26272E; }
-  .body p:last-child { margin-bottom: 0; }
 
-  /* research list */
+  .body > p { margin: 0 0 18px; color: var(--dim); }
+  .body > p:last-child { margin-bottom: 0; }
+  .body strong { color: var(--bone); font-weight: 500; }
+
   .items { list-style: none; margin: 0; padding: 0; }
   .items li {
-    padding: 16px 0;
+    padding: 20px 0;
     border-top: 1px solid var(--rule);
   }
   .items li:first-child { border-top: none; padding-top: 0; }
@@ -184,16 +185,38 @@
     font-family: var(--sans);
     font-weight: 600;
     font-size: 1.02rem;
-    margin: 0 0 4px;
+    color: var(--bone);
+    margin: 0 0 5px;
   }
-  .items p { margin: 0; color: var(--muted); font-size: 0.96rem; }
+  .items p { margin: 0; color: var(--faint); font-size: 0.96rem; }
 
-  /* timeline / education */
+  .thesis {
+    border-left: 2px solid var(--teal);
+    background: var(--panel);
+    padding: 26px 30px;
+  }
+  .thesis .title {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 400;
+    font-size: 1.24rem;
+    line-height: 1.35;
+    color: var(--bone);
+    margin: 0 0 12px;
+  }
+  .thesis .sup {
+    font-family: var(--mono);
+    font-size: 12.5px;
+    color: var(--teal);
+    margin: 0 0 18px;
+  }
+  .thesis p:last-child { margin: 0; color: var(--dim); font-size: 0.98rem; }
+
   .entry {
     display: grid;
-    grid-template-columns: 140px 1fr;
-    gap: 20px;
-    padding: 18px 0;
+    grid-template-columns: 150px minmax(0, 1fr);
+    gap: 24px;
+    padding: 22px 0;
     border-top: 1px solid var(--rule);
   }
   .entry:first-child { border-top: none; padding-top: 0; }
@@ -201,99 +224,87 @@
     font-family: var(--mono);
     font-size: 12.5px;
     color: var(--faint);
-    padding-top: 3px;
+    padding-top: 4px;
   }
   .entry h3 {
     font-family: var(--sans);
     font-weight: 600;
     font-size: 1.02rem;
-    margin: 0 0 3px;
+    color: var(--bone);
+    margin: 0 0 4px;
   }
-  .entry .where { color: var(--muted); font-size: 0.96rem; margin: 0 0 4px; }
+  .entry .where { color: var(--dim); font-size: 0.96rem; margin: 0 0 4px; }
   .entry .note { color: var(--faint); font-size: 0.9rem; margin: 0; }
 
-  /* thesis card */
-  .thesis {
-    background: var(--accent-soft);
-    border: 1px solid rgba(90, 67, 214, 0.16);
-    border-radius: 6px;
-    padding: 26px 28px;
-  }
-  .thesis .title {
-    font-family: var(--serif);
-    font-style: italic;
-    font-size: 1.22rem;
-    line-height: 1.35;
-    color: var(--ink);
-    margin: 0 0 10px;
-  }
-  .thesis .sup { font-family: var(--mono); font-size: 12.5px; color: var(--slate); margin: 0 0 16px; }
-  .thesis p { margin: 0; color: #2A2B33; font-size: 0.98rem; }
-
-  /* contact */
   .contact-links {
     display: flex;
     flex-wrap: wrap;
-    gap: 12px 28px;
+    gap: 12px 30px;
     font-family: var(--mono);
     font-size: 13.5px;
-    margin-top: 10px;
+    margin-top: 18px;
   }
 
   footer {
-    padding: 34px 0 48px;
+    border-top: 1px solid var(--rule);
+    padding: 32px 0 48px;
     font-family: var(--mono);
     font-size: 12px;
     color: var(--faint);
   }
   footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
 
-  /* ---------- responsive ---------- */
-  @media (max-width: 720px) {
+  /* ========================== responsive ========================== */
+  @media (max-width: 760px) {
     body { font-size: 16px; }
     .wrap { padding: 0 22px; }
-    .hero .wrap { padding-top: 72px; padding-bottom: 56px; }
-    .hero-graphic { opacity: 0.28; width: 90%; right: -60px; top: 60px; }
-    .grid { grid-template-columns: 1fr; gap: 16px; padding: 48px 0; }
-    .grid > .label { padding-top: 0; }
-    .entry { grid-template-columns: 1fr; gap: 4px; }
+    .readout { margin-top: 48px; }
+    .grid { grid-template-columns: 1fr; gap: 20px; padding: 52px 0; }
+    h2 { padding-top: 0; font-size: 1.3rem; }
+    .entry { grid-template-columns: 1fr; gap: 5px; }
     .entry .when { padding-top: 0; }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    * { animation: none !important; transition: none !important; }
+    .thesis { padding: 22px 24px; }
   }
 </style>
 </head>
 <body>
 
   <header class="hero">
-    <svg class="hero-graphic" id="traj" viewBox="0 0 600 400" aria-hidden="true"></svg>
     <div class="wrap">
-      <div class="hero-text">
-        <p class="eyebrow">Quantum information · Open quantum systems</p>
-        <h1 class="name">Gabriele<br>Campanello</h1>
-        <p class="lede">
-          Physicist working on <strong>continuously monitored open quantum systems</strong>,
-          quantum trajectories, and quantum metrology. MSc in Physics from the University of Milan.
-          Currently looking for a PhD position in quantum information in Europe.
-        </p>
-        <nav class="links" aria-label="Contact and profiles">
-          <a href="mailto:campanellogabriele99@gmail.com"><span class="dot"></span>Email</a>
-          <a href="https://github.com/gcampanello">GitHub</a>
-        </nav>
-      </div>
+      <p class="kicker">Quantum information · Open quantum systems</p>
+      <h1 class="name">Gabriele<br />Campanello</h1>
+      <p class="lede">
+        Physicist working on <strong>continuously monitored open quantum systems</strong>,
+        quantum trajectories, and quantum metrology. MSc in Physics from the University of Milan.
+        Currently looking for a PhD position in quantum information in Europe.
+      </p>
+      <nav class="links" aria-label="Contact and profiles">
+        <a href="mailto:campanellogabriele99@gmail.com">Email</a>
+        <a href="https://github.com/gcampanello">GitHub</a>
+      </nav>
     </div>
+
+    <figure class="readout">
+      <div class="wrap">
+        <div class="screen">
+          <canvas id="ent" aria-hidden="true"></canvas>
+        </div>
+        <figcaption class="caption">
+          Two continuously monitored modes under an <b>entangling unravelling</b>. The shared
+          measurement backaction correlates the two trajectories: the variance of their difference
+          falls below the uncorrelated level and entanglement builds, then decays once the coupling
+          is switched off. Simulated live in your browser — the noise is different on every visit.
+        </figcaption>
+      </div>
+    </figure>
   </header>
 
   <main>
 
-    <!-- PROFILE -->
     <section id="about">
       <div class="wrap grid">
-        <div class="label"><span class="num">01</span><p class="eyebrow">Profile</p></div>
+        <h2>About</h2>
         <div class="body">
-          <h2>About</h2>
           <p>
             I recently completed my MSc in Physics at the University of Milan (110/110 cum laude),
             with a thesis in the theory of continuously monitored open quantum systems. My work sits
@@ -310,12 +321,10 @@
       </div>
     </section>
 
-    <!-- RESEARCH -->
     <section id="research">
       <div class="wrap grid">
-        <div class="label"><span class="num">02</span><p class="eyebrow">Research</p></div>
+        <h2>Interests</h2>
         <div class="body">
-          <h2>Interests</h2>
           <ul class="items">
             <li>
               <h3>Continuously monitored open quantum systems</h3>
@@ -338,12 +347,10 @@
       </div>
     </section>
 
-    <!-- THESIS -->
     <section id="thesis">
       <div class="wrap grid">
-        <div class="label"><span class="num">03</span><p class="eyebrow">MSc thesis</p></div>
+        <h2>Master's thesis</h2>
         <div class="body">
-          <h2>Master's thesis</h2>
           <div class="thesis">
             <p class="title">Entangling Unravellings for Quantum State Engineering and Quantum Metrology</p>
             <p class="sup">Supervisors: Prof. Marco G. Genoni · Dr. Eoin O'Connor — University of Milan</p>
@@ -357,12 +364,10 @@
       </div>
     </section>
 
-    <!-- EDUCATION -->
     <section id="education">
       <div class="wrap grid">
-        <div class="label"><span class="num">04</span><p class="eyebrow">Education</p></div>
+        <h2>Education</h2>
         <div class="body">
-          <h2>Education</h2>
 
           <div class="entry">
             <div class="when">2024 — 2026</div>
@@ -396,16 +401,15 @@
               <p class="where">University of Milan</p>
             </div>
           </div>
+
         </div>
       </div>
     </section>
 
-    <!-- TEACHING -->
     <section id="teaching">
       <div class="wrap grid">
-        <div class="label"><span class="num">05</span><p class="eyebrow">Teaching</p></div>
+        <h2>Teaching</h2>
         <div class="body">
-          <h2>Teaching</h2>
           <p>
             For two school years I taught computer science at high-school level, covering C++, Python,
             and algorithms, and I served as an external examiner for the Italian State Exam. It remains
@@ -415,12 +419,10 @@
       </div>
     </section>
 
-    <!-- CONTACT -->
     <section id="contact">
       <div class="wrap grid">
-        <div class="label"><span class="num">06</span><p class="eyebrow">Contact</p></div>
+        <h2>Get in touch</h2>
         <div class="body">
-          <h2>Get in touch</h2>
           <p>The best way to reach me is by email. I'm always happy to talk about quantum measurement,
              metrology, or a possible PhD.</p>
           <div class="contact-links">
@@ -441,73 +443,243 @@
   </footer>
 
 <script>
-  // Signature: a single continuously-monitored quantum trajectory (noisy line)
-  // relaxing toward its steady state (smooth line). Drawn on load.
-  (function () {
-    var svg = document.getElementById('traj');
-    if (!svg) return;
-    var W = 600, H = 400, N = 240;
-    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+/*
+  Hero readout — two continuously monitored modes.
 
-    var meanD = 'M', trajD = 'M', noise = 0;
-    for (var i = 0; i < N; i++) {
-      var x = (i / (N - 1)) * W;
-      var t = (i / (N - 1)) * 6;
-      var mean = 235 - 95 * Math.exp(-t / 2.2) * Math.cos(t * 1.55);
-      noise += (Math.random() - 0.5) * 15;
-      noise *= 0.85;                       // mean-reverting fluctuations
-      var traj = mean + noise;
-      meanD += (i ? ' L' : '') + x.toFixed(1) + ' ' + mean.toFixed(1);
-      trajD += (i ? ' L' : '') + x.toFixed(1) + ' ' + traj.toFixed(1);
+  Both modes are damped at rate GAMMA and driven by noise of fixed total power SIG.
+  A slow cycle moves that power between a *shared* channel (measurement backaction
+  common to both modes) and *local* channels. When the shared channel dominates, the
+  two trajectories lock together.
+
+  The conditional means a, b are stochastic — one noise realisation, redrawn on every
+  visit. The conditional covariance is not: for a linear Gaussian system it obeys a
+  deterministic recursion, independent of the noise. So the entanglement trace is
+  computed exactly rather than estimated from the trajectories, which is both the
+  physically correct statement and the reason the curve is smooth.
+
+      E = 1 - Var(a-b) / (Var a + Var b) = 2*Vab / (Vaa + Vbb)
+
+  E -> 0 when the shared channel is off, and -> CMAX^2 = 0.92 when it dominates.
+*/
+(function () {
+  var canvas = document.getElementById('ent');
+  if (!canvas || !canvas.getContext) return;
+  var ctx = canvas.getContext('2d');
+
+  var TEAL = '#34D1C4', MAG = '#E0457B', BONE = '#E8E6E1', FAINT = '#82858F';
+
+  var N = 480;
+  var xa = new Float64Array(N), xb = new Float64Array(N), ee = new Float64Array(N);
+  var filled = 0;
+
+  var GAMMA  = 0.02;                                        // damping per step
+  var SIG    = 0.17;                                        // total noise amplitude, conserved
+  var CMAX   = Math.sqrt(0.92);                             // max share sent down the common channel
+  var G2     = (1 - GAMMA) * (1 - GAMMA);
+  var SDX    = SIG / Math.sqrt(2 * GAMMA - GAMMA * GAMMA);  // steady-state sd of each mode
+  var PERIOD = 1000;                                        // steps per on/off cycle
+
+  var a = 0, b = 0;                 // conditional means — stochastic
+  var Vaa = 0, Vbb = 0, Vab = 0;    // conditional covariance — deterministic
+  var s = 0;
+
+  function gauss() {
+    var u = 0, v = 0;
+    while (u === 0) u = Math.random();
+    while (v === 0) v = Math.random();
+    return Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * v);
+  }
+
+  function smoothstep(e0, e1, x) {
+    var t = Math.min(1, Math.max(0, (x - e0) / (e1 - e0)));
+    return t * t * (3 - 2 * t);
+  }
+
+  function step() {
+    var ph = (s % PERIOD) / PERIOD;
+    var ramp = Math.min(smoothstep(0.08, 0.32, ph), 1 - smoothstep(0.76, 0.94, ph));
+
+    var kS = SIG * CMAX * ramp;
+    var kL = Math.sqrt(Math.max(0, SIG * SIG - kS * kS));
+
+    var dWs = gauss();                                 // the shared measurement record
+    a += -GAMMA * a + kS * dWs + kL * gauss();
+    b += -GAMMA * b + kS * dWs + kL * gauss();
+
+    Vaa = G2 * Vaa + kS * kS + kL * kL;
+    Vbb = G2 * Vbb + kS * kS + kL * kL;
+    Vab = G2 * Vab + kS * kS;
+
+    xa.copyWithin(0, 1); xb.copyWithin(0, 1); ee.copyWithin(0, 1);
+    xa[N - 1] = a;
+    xb[N - 1] = b;
+    ee[N - 1] = Math.max(0, Math.min(1, 2 * Vab / Math.max(1e-12, Vaa + Vbb)));
+    if (filled < N) filled++;
+    s++;
+  }
+
+  var W = 0, H = 0;
+  function resize() {
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    W = canvas.clientWidth;
+    H = canvas.clientHeight;
+    canvas.width  = Math.round(W * dpr);
+    canvas.height = Math.round(H * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+
+  function draw() {
+    if (!W || !H || filled < 2) return;
+    ctx.clearRect(0, 0, W, H);
+
+    var padT = 18, padB = 18;
+    var U     = H - padT - padB;
+    var yA    = padT + 0.15 * U;
+    var yB    = padT + 0.48 * U;
+    var amp   = 0.132 * U;
+    var eBase = padT + U;
+    var eTop  = padT + 0.71 * U;
+
+    var start = N - filled;
+    var span  = (filled - 1) || 1;
+
+    function px(i) { return ((i - start) / span) * W; }
+    function py(v, yc) {
+      var z = Math.max(-2.8, Math.min(2.8, v / SDX));
+      return yc - z * (amp / 2.8);
     }
 
-    var NS = 'http://www.w3.org/2000/svg';
-    function line(d, stroke, w, opacity, dash) {
-      var p = document.createElementNS(NS, 'path');
-      p.setAttribute('d', d);
-      p.setAttribute('fill', 'none');
-      p.setAttribute('stroke', stroke);
-      p.setAttribute('stroke-width', w);
-      p.setAttribute('stroke-opacity', opacity);
-      p.setAttribute('stroke-linejoin', 'round');
-      if (dash) p.setAttribute('stroke-dasharray', dash);
-      svg.appendChild(p);
-      return p;
+    ctx.strokeStyle = 'rgba(232,230,225,0.045)';
+    ctx.lineWidth = 1;
+    for (var g = 1; g < 8; g++) {
+      var gx = Math.round((g / 8) * W) + 0.5;
+      ctx.beginPath(); ctx.moveTo(gx, padT); ctx.lineTo(gx, eBase); ctx.stroke();
     }
 
-    // faint baseline (steady state) axis
-    line('M0 235 L600 235', '#8C8E98', 1, 0.25, '2 5');
+    ctx.strokeStyle = 'rgba(232,230,225,0.13)';
+    ctx.setLineDash([2, 5]);
+    [yA, yB].forEach(function (y) {
+      ctx.beginPath();
+      ctx.moveTo(0, Math.round(y) + 0.5);
+      ctx.lineTo(W, Math.round(y) + 0.5);
+      ctx.stroke();
+    });
+    ctx.setLineDash([]);
 
-    var meanP = line(meanD, '#5A43D6', 1.6, 0.5, '4 4');
-    var trajP = line(trajD, '#2C3B52', 1.15, 0.42);
+    ctx.strokeStyle = 'rgba(232,230,225,0.10)';
+    ctx.beginPath();
+    ctx.moveTo(0, Math.round(eBase) + 0.5);
+    ctx.lineTo(W, Math.round(eBase) + 0.5);
+    ctx.stroke();
 
-    // end marker
-    var dot = document.createElementNS(NS, 'circle');
-    dot.setAttribute('r', 4);
-    dot.setAttribute('fill', '#5A43D6');
-    var last = trajD.split('L').pop().trim().split(' ');
-    dot.setAttribute('cx', last[0]);
-    dot.setAttribute('cy', last[1]);
-    dot.setAttribute('opacity', reduce ? 0.9 : 0);
-    svg.appendChild(dot);
-
-    if (!reduce) {
-      [trajP, meanP].forEach(function (p, k) {
-        var len = p.getTotalLength();
-        p.style.strokeDasharray = (p === meanP ? '4 4, ' : '') + len + ' ' + len;
-        // keep dashed style for mean by using offset only
-        p.style.strokeDashoffset = len;
-        p.style.transition = 'stroke-dashoffset 2.4s ease-out ' + (k * 0.15) + 's';
-        requestAnimationFrame(function () {
-          requestAnimationFrame(function () { p.style.strokeDashoffset = '0'; });
-        });
-      });
-      dot.style.transition = 'opacity 0.6s ease 2.2s';
-      requestAnimationFrame(function () {
-        requestAnimationFrame(function () { dot.style.opacity = '0.9'; });
-      });
+    function trace(arr, yc, color) {
+      ctx.beginPath();
+      for (var i = start; i < N; i++) {
+        var x = px(i), y = py(arr[i], yc);
+        if (i === start) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+      }
+      ctx.strokeStyle = color;
+      ctx.globalAlpha = 0.85;
+      ctx.lineWidth = 1.2;
+      ctx.lineJoin = 'round';
+      ctx.stroke();
+      ctx.globalAlpha = 1;
     }
-  })();
+    trace(xa, yA, TEAL);
+    trace(xb, yB, MAG);
+
+    var eh = eBase - eTop;
+
+    ctx.beginPath();
+    ctx.moveTo(px(start), eBase);
+    for (var j = start; j < N; j++) ctx.lineTo(px(j), eBase - ee[j] * eh);
+    ctx.lineTo(W, eBase);
+    ctx.closePath();
+    var grad = ctx.createLinearGradient(0, eTop, 0, eBase);
+    grad.addColorStop(0, 'rgba(52,209,196,0.22)');
+    grad.addColorStop(1, 'rgba(52,209,196,0.02)');
+    ctx.fillStyle = grad;
+    ctx.fill();
+
+    ctx.beginPath();
+    for (var k = start; k < N; k++) {
+      var ex = px(k), ey = eBase - ee[k] * eh;
+      if (k === start) ctx.moveTo(ex, ey); else ctx.lineTo(ex, ey);
+    }
+    ctx.strokeStyle = BONE;
+    ctx.globalAlpha = 0.55;
+    ctx.lineWidth = 1.1;
+    ctx.stroke();
+    ctx.globalAlpha = 1;
+
+    function dot(y, color) {
+      ctx.beginPath();
+      ctx.arc(W - 1.5, y, 2.4, 0, Math.PI * 2);
+      ctx.fillStyle = color;
+      ctx.fill();
+    }
+    dot(py(xa[N - 1], yA), TEAL);
+    dot(py(xb[N - 1], yB), MAG);
+    dot(eBase - ee[N - 1] * eh, BONE);
+
+    ctx.font = '500 11px "IBM Plex Mono", ui-monospace, monospace';
+    ctx.fillStyle = FAINT;
+    ctx.textBaseline = 'alphabetic';
+    ctx.fillText('mode A', 14, yA - amp - 7);
+    ctx.fillText('mode B', 14, yB - amp - 7);
+    ctx.fillText('entanglement', 14, eTop - 7);
+  }
+
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+  var raf = null, last = 0, onScreen = true;
+
+  function frame(ts) {
+    raf = requestAnimationFrame(frame);
+    if (ts - last < 33) return;   // ~30 fps: smooth enough, half the battery cost
+    last = ts;
+    step();
+    draw();
+  }
+
+  function play() {
+    if (raf === null && onScreen && !document.hidden && !reduce.matches) {
+      last = 0;
+      raf = requestAnimationFrame(frame);
+    }
+  }
+
+  function pause() {
+    if (raf !== null) { cancelAnimationFrame(raf); raf = null; }
+  }
+
+  resize();
+  for (var i = 0; i < N; i++) step();   // prime the strip so it opens full, mid-cycle
+  draw();
+  if (!reduce.matches) play();
+
+  var rt = null;
+  window.addEventListener('resize', function () {
+    clearTimeout(rt);
+    rt = setTimeout(function () { resize(); draw(); }, 120);
+  });
+
+  document.addEventListener('visibilitychange', function () {
+    if (document.hidden) pause(); else play();
+  });
+
+  if (typeof reduce.addEventListener === 'function') {
+    reduce.addEventListener('change', function () {
+      if (reduce.matches) pause(); else play();
+    });
+  }
+
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (entries) {
+      onScreen = entries[0].isIntersecting;
+      if (onScreen) play(); else pause();
+    }, { threshold: 0 }).observe(canvas);
+  }
+})();
 </script>
 </body>
 </html>
