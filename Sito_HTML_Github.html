@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<!--
+  ============================================================================
+  PERSONAL SITE — index.html
+  Metti questo file nella root di un repository chiamato ESATTAMENTE
+  "tuo-username.github.io" e sarà online su https://tuo-username.github.io
+
+  DA COMPLETARE (cerca i segnaposto {{...}} qui sotto):
+    {{EMAIL}}          la tua email
+    {{GITHUB_USER}}    il tuo username GitHub
+    {{SCHOLAR_URL}}    link Google Scholar   (rimuovi la riga se non ce l'hai)
+    {{ORCID_URL}}      link ORCID            (rimuovi la riga se non ce l'hai)
+    {{LINKEDIN_URL}}   link LinkedIn         (rimuovi la riga se non ce l'hai)
+    {{CV_URL}}         link al PDF del CV     (es. /cv.pdf caricato nel repo)
+
+  DA VERIFICARE (li ho precompilati ma controlla che siano giusti):
+    - cognome nel titolo (h1) e nel tag <title>
+    - gli anni nella sezione Education
+    - la riga sul BSc (aggiungila/correggila)
+  ============================================================================
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Gabriele Campanello — Physicist</title>
+<meta name="description" content="Physicist working on continuously monitored open quantum systems, quantum trajectories, and quantum metrology. MSc in Physics, University of Milan." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --paper:   #FBFAF6;
+    --ink:     #16171D;
+    --muted:   #5E606A;
+    --faint:   #8C8E98;
+    --rule:    #E5E2D8;
+    --accent:  #5A43D6;
+    --accent-soft: rgba(90, 67, 214, 0.10);
+    --slate:   #2C3B52;
+    --serif: "Newsreader", Georgia, serif;
+    --sans:  "IBM Plex Sans", system-ui, sans-serif;
+    --mono:  "IBM Plex Mono", ui-monospace, monospace;
+    --maxw: 940px;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; text-underline-offset: 3px; }
+  a:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  .wrap {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  /* ---------- eyebrow / mono labels ---------- */
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 12.5px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0;
+  }
+
+  /* ---------- hero ---------- */
+  .hero {
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid var(--rule);
+  }
+  .hero .wrap {
+    position: relative;
+    padding-top: 96px;
+    padding-bottom: 80px;
+  }
+  .hero-graphic {
+    position: absolute;
+    top: 40px;
+    right: -40px;
+    width: 62%;
+    max-width: 620px;
+    opacity: 0.9;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .hero-text { position: relative; z-index: 1; max-width: 620px; }
+
+  .name {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: clamp(2.7rem, 7vw, 4.4rem);
+    line-height: 1.02;
+    letter-spacing: -0.015em;
+    margin: 16px 0 22px;
+  }
+  .name em { font-style: italic; font-weight: 400; color: var(--slate); }
+
+  .lede {
+    font-size: clamp(1.05rem, 2.4vw, 1.28rem);
+    line-height: 1.55;
+    color: var(--muted);
+    max-width: 34em;
+    margin: 0 0 32px;
+  }
+  .lede strong { color: var(--ink); font-weight: 500; }
+
+  .links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 22px;
+    font-family: var(--mono);
+    font-size: 13.5px;
+    align-items: center;
+  }
+  .links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    color: var(--ink);
+    border-bottom: 1px solid transparent;
+    padding-bottom: 1px;
+  }
+  .links a:hover { text-decoration: none; border-bottom-color: var(--accent); color: var(--accent); }
+  .links .dot { width: 5px; height: 5px; background: var(--accent); border-radius: 50%; }
+
+  /* ---------- section grid ---------- */
+  section { border-bottom: 1px solid var(--rule); }
+  .grid {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 40px;
+    padding: 64px 0;
+  }
+  .grid > .label { padding-top: 4px; }
+  .label .eyebrow { color: var(--faint); }
+  .num {
+    font-family: var(--mono);
+    font-size: 12.5px;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  h2 {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 1.6rem;
+    line-height: 1.2;
+    margin: 0 0 18px;
+    letter-spacing: -0.01em;
+  }
+  .body p { margin: 0 0 16px; color: #26272E; }
+  .body p:last-child { margin-bottom: 0; }
+
+  /* research list */
+  .items { list-style: none; margin: 0; padding: 0; }
+  .items li {
+    padding: 16px 0;
+    border-top: 1px solid var(--rule);
+  }
+  .items li:first-child { border-top: none; padding-top: 0; }
+  .items h3 {
+    font-family: var(--sans);
+    font-weight: 600;
+    font-size: 1.02rem;
+    margin: 0 0 4px;
+  }
+  .items p { margin: 0; color: var(--muted); font-size: 0.96rem; }
+
+  /* timeline / education */
+  .entry {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 20px;
+    padding: 18px 0;
+    border-top: 1px solid var(--rule);
+  }
+  .entry:first-child { border-top: none; padding-top: 0; }
+  .entry .when {
+    font-family: var(--mono);
+    font-size: 12.5px;
+    color: var(--faint);
+    padding-top: 3px;
+  }
+  .entry h3 {
+    font-family: var(--sans);
+    font-weight: 600;
+    font-size: 1.02rem;
+    margin: 0 0 3px;
+  }
+  .entry .where { color: var(--muted); font-size: 0.96rem; margin: 0 0 4px; }
+  .entry .note { color: var(--faint); font-size: 0.9rem; margin: 0; }
+
+  /* thesis card */
+  .thesis {
+    background: var(--accent-soft);
+    border: 1px solid rgba(90, 67, 214, 0.16);
+    border-radius: 6px;
+    padding: 26px 28px;
+  }
+  .thesis .title {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 1.22rem;
+    line-height: 1.35;
+    color: var(--ink);
+    margin: 0 0 10px;
+  }
+  .thesis .sup { font-family: var(--mono); font-size: 12.5px; color: var(--slate); margin: 0 0 16px; }
+  .thesis p { margin: 0; color: #2A2B33; font-size: 0.98rem; }
+
+  /* contact */
+  .contact-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 28px;
+    font-family: var(--mono);
+    font-size: 13.5px;
+    margin-top: 10px;
+  }
+
+  footer {
+    padding: 34px 0 48px;
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--faint);
+  }
+  footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+
+  /* ---------- responsive ---------- */
+  @media (max-width: 720px) {
+    body { font-size: 16px; }
+    .wrap { padding: 0 22px; }
+    .hero .wrap { padding-top: 72px; padding-bottom: 56px; }
+    .hero-graphic { opacity: 0.28; width: 90%; right: -60px; top: 60px; }
+    .grid { grid-template-columns: 1fr; gap: 16px; padding: 48px 0; }
+    .grid > .label { padding-top: 0; }
+    .entry { grid-template-columns: 1fr; gap: 4px; }
+    .entry .when { padding-top: 0; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+  }
+</style>
+</head>
+<body>
+
+  <header class="hero">
+    <svg class="hero-graphic" id="traj" viewBox="0 0 600 400" aria-hidden="true"></svg>
+    <div class="wrap">
+      <div class="hero-text">
+        <p class="eyebrow">Quantum information · Open quantum systems</p>
+        <h1 class="name">Gabriele<br>Campanello</h1>
+        <p class="lede">
+          Physicist working on <strong>continuously monitored open quantum systems</strong>,
+          quantum trajectories, and quantum metrology. MSc in Physics from the University of Milan.
+          Currently looking for a PhD position in quantum information in Europe.
+        </p>
+        <nav class="links" aria-label="Contact and profiles">
+          <a href="mailto:{{EMAIL}}"><span class="dot"></span>Email</a>
+          <a href="https://github.com/{{GITHUB_USER}}">GitHub</a>
+          <a href="{{SCHOLAR_URL}}">Google Scholar</a>
+          <a href="{{ORCID_URL}}">ORCID</a>
+          <a href="{{CV_URL}}">CV (PDF)</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- PROFILE -->
+    <section id="about">
+      <div class="wrap grid">
+        <div class="label"><span class="num">01</span><p class="eyebrow">Profile</p></div>
+        <div class="body">
+          <h2>About</h2>
+          <p>
+            I recently completed my MSc in Physics at the University of Milan (110/110 cum laude),
+            with a thesis in the theory of continuously monitored open quantum systems. My work sits
+            at the intersection of quantum information, quantum optics, and quantum metrology: I study
+            how the information gained by continuously measuring an open system can be used to engineer
+            useful quantum states and to sharpen parameter estimation.
+          </p>
+          <p>
+            I also enjoy the computational side of the field, from stochastic simulations in Python and
+            QuTiP to lower-level work in C++. Before returning to research I spent two years teaching
+            computer science, which taught me that I understand an idea only once I can explain it plainly.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESEARCH -->
+    <section id="research">
+      <div class="wrap grid">
+        <div class="label"><span class="num">02</span><p class="eyebrow">Research</p></div>
+        <div class="body">
+          <h2>Interests</h2>
+          <ul class="items">
+            <li>
+              <h3>Continuously monitored open quantum systems</h3>
+              <p>Stochastic master equations, quantum trajectories, and unravellings of the Lindblad dynamics.</p>
+            </li>
+            <li>
+              <h3>Quantum metrology</h3>
+              <p>Quantum Fisher information and measurement-based strategies for enhanced parameter estimation.</p>
+            </li>
+            <li>
+              <h3>Quantum state engineering</h3>
+              <p>Using continuous monitoring and feedback to prepare entangled and spin-squeezed states.</p>
+            </li>
+            <li>
+              <h3>Fault-tolerant quantum computing</h3>
+              <p>An emerging interest in quantum error correction and fault-tolerant quantum algorithms.</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- THESIS -->
+    <section id="thesis">
+      <div class="wrap grid">
+        <div class="label"><span class="num">03</span><p class="eyebrow">MSc thesis</p></div>
+        <div class="body">
+          <h2>Master's thesis</h2>
+          <div class="thesis">
+            <p class="title">Entangling Unravellings for Quantum State Engineering and Quantum Metrology</p>
+            <p class="sup">Supervisors: Prof. Marco G. Genoni · Dr. Eoin O'Connor — University of Milan</p>
+            <p>
+              The thesis studies how different continuous-measurement strategies, or unravellings, of an
+              open quantum system's dynamics can generate entanglement and spin squeezing, and quantifies
+              the resulting metrological advantage through the quantum Fisher information.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education">
+      <div class="wrap grid">
+        <div class="label"><span class="num">04</span><p class="eyebrow">Education</p></div>
+        <div class="body">
+          <h2>Education</h2>
+
+          <div class="entry">
+            <div class="when">2024 — 2026</div>
+            <div>
+              <h3>MSc in Physics — 110/110 cum laude</h3>
+              <p class="where">University of Milan</p>
+              <p class="note">Track in theoretical quantum information and open quantum systems.</p>
+            </div>
+          </div>
+
+          <div class="entry">
+            <div class="when">Winter 2024/25</div>
+            <div>
+              <h3>Erasmus+ exchange semester</h3>
+              <p class="where">Technical University of Munich (TUM)</p>
+            </div>
+          </div>
+
+          <div class="entry">
+            <div class="when">June 2024</div>
+            <div>
+              <h3>Summer school — Quantum Information &amp; Many-Body Theory</h3>
+              <p class="where">QMATH, University of Copenhagen</p>
+            </div>
+          </div>
+
+          <div class="entry">
+            <div class="when">{{BSc_YEARS}}</div>
+            <div>
+              <h3>BSc in Physics</h3>
+              <p class="where">{{BSc_UNIVERSITY}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TEACHING -->
+    <section id="teaching">
+      <div class="wrap grid">
+        <div class="label"><span class="num">05</span><p class="eyebrow">Teaching</p></div>
+        <div class="body">
+          <h2>Teaching</h2>
+          <p>
+            For two school years I taught computer science at high-school level, covering C++, Python,
+            and algorithms, and I served as an external examiner for the Italian State Exam. It remains
+            one of the experiences I value most.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="wrap grid">
+        <div class="label"><span class="num">06</span><p class="eyebrow">Contact</p></div>
+        <div class="body">
+          <h2>Get in touch</h2>
+          <p>The best way to reach me is by email. I'm always happy to talk about quantum measurement,
+             metrology, or a possible PhD.</p>
+          <div class="contact-links">
+            <a href="mailto:{{EMAIL}}">{{EMAIL}}</a>
+            <a href="https://github.com/{{GITHUB_USER}}">github.com/{{GITHUB_USER}}</a>
+            <a href="{{LINKEDIN_URL}}">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span>Gabriele Campanello</span>
+      <span>Built with plain HTML · hosted on GitHub Pages</span>
+    </div>
+  </footer>
+
+<script>
+  // Signature: a single continuously-monitored quantum trajectory (noisy line)
+  // relaxing toward its steady state (smooth line). Drawn on load.
+  (function () {
+    var svg = document.getElementById('traj');
+    if (!svg) return;
+    var W = 600, H = 400, N = 240;
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    var meanD = 'M', trajD = 'M', noise = 0;
+    for (var i = 0; i < N; i++) {
+      var x = (i / (N - 1)) * W;
+      var t = (i / (N - 1)) * 6;
+      var mean = 235 - 95 * Math.exp(-t / 2.2) * Math.cos(t * 1.55);
+      noise += (Math.random() - 0.5) * 15;
+      noise *= 0.85;                       // mean-reverting fluctuations
+      var traj = mean + noise;
+      meanD += (i ? ' L' : '') + x.toFixed(1) + ' ' + mean.toFixed(1);
+      trajD += (i ? ' L' : '') + x.toFixed(1) + ' ' + traj.toFixed(1);
+    }
+
+    var NS = 'http://www.w3.org/2000/svg';
+    function line(d, stroke, w, opacity, dash) {
+      var p = document.createElementNS(NS, 'path');
+      p.setAttribute('d', d);
+      p.setAttribute('fill', 'none');
+      p.setAttribute('stroke', stroke);
+      p.setAttribute('stroke-width', w);
+      p.setAttribute('stroke-opacity', opacity);
+      p.setAttribute('stroke-linejoin', 'round');
+      if (dash) p.setAttribute('stroke-dasharray', dash);
+      svg.appendChild(p);
+      return p;
+    }
+
+    // faint baseline (steady state) axis
+    line('M0 235 L600 235', '#8C8E98', 1, 0.25, '2 5');
+
+    var meanP = line(meanD, '#5A43D6', 1.6, 0.5, '4 4');
+    var trajP = line(trajD, '#2C3B52', 1.15, 0.42);
+
+    // end marker
+    var dot = document.createElementNS(NS, 'circle');
+    dot.setAttribute('r', 4);
+    dot.setAttribute('fill', '#5A43D6');
+    var last = trajD.split('L').pop().trim().split(' ');
+    dot.setAttribute('cx', last[0]);
+    dot.setAttribute('cy', last[1]);
+    dot.setAttribute('opacity', reduce ? 0.9 : 0);
+    svg.appendChild(dot);
+
+    if (!reduce) {
+      [trajP, meanP].forEach(function (p, k) {
+        var len = p.getTotalLength();
+        p.style.strokeDasharray = (p === meanP ? '4 4, ' : '') + len + ' ' + len;
+        // keep dashed style for mean by using offset only
+        p.style.strokeDashoffset = len;
+        p.style.transition = 'stroke-dashoffset 2.4s ease-out ' + (k * 0.15) + 's';
+        requestAnimationFrame(function () {
+          requestAnimationFrame(function () { p.style.strokeDashoffset = '0'; });
+        });
+      });
+      dot.style.transition = 'opacity 0.6s ease 2.2s';
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () { dot.style.opacity = '0.9'; });
+      });
+    }
+  })();
+</script>
+</body>
+</html>
