@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Gabriele Campanello — Physicist</title>
-<meta name="description" content="Physicist working on continuously monitored open quantum systems, quantum trajectories, and quantum metrology. MSc in Physics, University of Milan." />
+<title>Gabriele Campanello, Physicist</title>
+<meta name="description" content="Gabriele Campanello, physicist with a background in quantum information and stochastic simulation. MSc in Physics, University of Milan. Looking for data science roles in Milan and PhD positions." />
 <meta name="theme-color" content="#0B0D12" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -189,6 +189,7 @@
     margin: 0 0 5px;
   }
   .items p { margin: 0; color: var(--faint); font-size: 0.96rem; }
+  .items p.more { margin-top: 10px; font-family: var(--mono); font-size: 13px; }
 
   .thesis {
     border-left: 2px solid var(--teal);
@@ -271,18 +272,19 @@
 
   <header class="hero">
     <div class="wrap">
-      <p class="kicker">Quantum information · Open quantum systems</p>
+      <p class="kicker">Physics · Data science · Quantum information</p>
       <h1 class="name">Gabriele<br />Campanello</h1>
       <p class="lede">
-        Physicist working on <strong>continuously monitored open quantum systems</strong>,
-        quantum trajectories, and quantum metrology. MSc in Physics from the University of Milan.
-        Currently looking for a PhD position in quantum information in Europe.
+        Physicist with a background in <strong>quantum information</strong> and
+        <strong>stochastic simulation</strong>. MSc in Physics from the University of Milan.
+        I am looking for a role as a data scientist in the Milan area, and I am also applying
+        for PhD positions in quantum information.
       </p>
       <nav class="links" aria-label="Contact and profiles">
         <a href="mailto:campanellogabriele99@gmail.com">Email</a>
         <a href="https://github.com/gcampanello">GitHub</a>
         <a href="https://www.linkedin.com/in/gabriele-campanello-5a834a300">LinkedIn</a>
-        <a href="cv.pdf">CV (PDF)</a>
+        <a href="CV_Gabriele_Campanello.pdf">CV (PDF)</a>
       </nav>
     </div>
 
@@ -295,7 +297,7 @@
           Two continuously monitored modes under an <b>entangling unravelling</b>. The shared
           measurement backaction correlates the two trajectories: the variance of their difference
           falls below the uncorrelated level and entanglement builds, then decays once the coupling
-          is switched off. Simulated live in your browser — the noise is different on every visit.
+          is switched off. Simulated live in your browser, so the noise is different on every visit.
         </figcaption>
       </div>
     </figure>
@@ -308,24 +310,54 @@
         <h2>About</h2>
         <div class="body">
           <p>
-            I recently completed my MSc in Physics at the University of Milan (110/110 cum laude),
-            with a thesis in the theory of continuously monitored open quantum systems. I study what
-            you can do with the information a continuous measurement gives you: which states it lets
-            you prepare, and how much sharper it makes parameter estimation. The tools come from
-            quantum information, quantum optics and metrology.
+            I completed my MSc in Physics at the University of Milan in April 2026 (110/110 cum laude),
+            with a thesis in the theory of continuously monitored open quantum systems. The work was
+            about extracting information from noisy measurement records: which states a continuous
+            measurement lets you prepare, and how precisely it lets you estimate a parameter.
           </p>
           <p>
-            I work as much in code as on paper: stochastic simulations in Python and QuTiP, and
-            lower-level work in C++. I came back to research after two years teaching computer
-            science in a high school.
+            Most of that work was done in code: stochastic simulations in Python and QuTiP, with
+            probability, statistics and numerical methods at the core. I want to apply the same
+            skills to real data, and I am studying machine learning to get there. In parallel with
+            my studies I taught computer science in high school for two school years.
           </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="wrap grid">
+        <h2>Projects</h2>
+        <div class="body">
+          <ul class="items">
+            <li>
+              <h3>A statistical study of 10eLotto, an Italian keno game</h3>
+              <p>
+                Exact payout distribution for all 60 possible bets, from hypergeometric distributions
+                and the conditional Extra draw. No bet returns more than 71.1% of the stake. Monte Carlo
+                simulations confirm the exact results and estimate how long a budget lasts, and tests on
+                768 real draws (uniformity, corrected for sampling without replacement, and independence)
+                show no deviation from chance. Python, NumPy, SciPy, pandas, a web scraper for the draws.
+              </p>
+              <p class="more"><a href="papers/10eLotto_Campanello.pdf">Paper (PDF, in Italian)</a></p>
+            </li>
+            <li>
+              <h3>Quantum trajectory simulations for the master's thesis</h3>
+              <p>
+                Simulations of two distant qubits whose noise channels are monitored continuously,
+                built on stochastic master equations in QuTiP. Many trajectories are averaged to
+                compute entanglement, spin squeezing and the quantum Fisher information under
+                different measurement strategies.
+              </p>
+            </li>
+          </ul>
         </div>
       </div>
     </section>
 
     <section id="research">
       <div class="wrap grid">
-        <h2>Interests</h2>
+        <h2>Research interests</h2>
         <div class="body">
           <ul class="items">
             <li>
@@ -355,7 +387,7 @@
         <div class="body">
           <div class="thesis">
             <p class="title">Entangling Unravellings for Quantum State Engineering and Quantum Metrology</p>
-            <p class="sup">Supervisors: Prof. Marco G. Genoni · Dr. Eoin O'Connor — University of Milan</p>
+            <p class="sup">Supervisors: Prof. Marco G. Genoni · Dr. Eoin O'Connor · University of Milan</p>
             <p>
               The thesis studies how different continuous-measurement strategies, or unravellings, of an
               open quantum system's dynamics can generate entanglement and spin squeezing, and quantifies
@@ -366,17 +398,54 @@
       </div>
     </section>
 
+    <section id="skills">
+      <div class="wrap grid">
+        <h2>Skills</h2>
+        <div class="body">
+
+          <div class="entry">
+            <div class="when">Programming</div>
+            <div>
+              <p class="where">Python (NumPy, SciPy, pandas, Matplotlib, Jupyter), C++, Julia, Mathematica</p>
+            </div>
+          </div>
+
+          <div class="entry">
+            <div class="when">Data</div>
+            <div>
+              <p class="where">Probability and statistics, Monte Carlo methods, machine learning, SQL with DuckDB, Power BI</p>
+            </div>
+          </div>
+
+          <div class="entry">
+            <div class="when">Scientific</div>
+            <div>
+              <p class="where">QuTiP, Qiskit, LaTeX, Git</p>
+            </div>
+          </div>
+
+          <div class="entry">
+            <div class="when">Languages</div>
+            <div>
+              <p class="where">Italian (native), English (C1)</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
     <section id="education">
       <div class="wrap grid">
         <h2>Education</h2>
         <div class="body">
 
           <div class="entry">
-            <div class="when">2024 — 2026</div>
+            <div class="when">2023 – 2026</div>
             <div>
-              <h3>MSc in Physics — 110/110 cum laude</h3>
+              <h3>MSc in Physics, 110/110 cum laude</h3>
               <p class="where">University of Milan</p>
-              <p class="note">Track in theoretical quantum information and open quantum systems.</p>
+              <p class="note">Theoretical quantum information and open quantum systems.</p>
             </div>
           </div>
 
@@ -385,22 +454,24 @@
             <div>
               <h3>Erasmus+ exchange semester</h3>
               <p class="where">Technical University of Munich (TUM)</p>
+              <p class="note">Courses in English, including Essential Machine Learning for Physicists (30/30) and Quantum Information Theory.</p>
             </div>
           </div>
 
           <div class="entry">
             <div class="when">June 2024</div>
             <div>
-              <h3>Summer school — Quantum Information &amp; Many-Body Theory</h3>
+              <h3>4EU+ summer school, Quantum Information &amp; Many-Body Theory</h3>
               <p class="where">QMATH, University of Copenhagen</p>
             </div>
           </div>
 
           <div class="entry">
-            <div class="when">2019 &mdash; 2023</div>
+            <div class="when">2019 – 2023</div>
             <div>
-              <h3>BSc in Physics</h3>
+              <h3>BSc in Physics, 108/110</h3>
               <p class="where">University of Milan</p>
+              <p class="note">Thesis on encoding based on QAM16 and APSK16 constellations for quantum communication.</p>
             </div>
           </div>
 
@@ -412,10 +483,24 @@
       <div class="wrap grid">
         <h2>Teaching</h2>
         <div class="body">
-          <p>
-            For two school years I taught computer science at high-school level, covering C++, Python,
-            and algorithms, and I served as an external examiner for the Italian State Exam.
-          </p>
+
+          <div class="entry">
+            <div class="when">2025 – 2026</div>
+            <div>
+              <h3>High school teacher, Computer Science</h3>
+              <p class="where">IIS "A. Volta", Lodi</p>
+              <p class="note">Number systems, algorithms, spreadsheets, and programming in C++ and Python. External examiner in Automated Systems for the 2026 Italian State Exam.</p>
+            </div>
+          </div>
+
+          <div class="entry">
+            <div class="when">2022 – 2023</div>
+            <div>
+              <h3>High school teacher, Telecommunications and Automated Systems</h3>
+              <p class="where">ISII "G. Marconi", Piacenza</p>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
@@ -424,13 +509,13 @@
       <div class="wrap grid">
         <h2>Get in touch</h2>
         <div class="body">
-          <p>The best way to reach me is by email. I'm always happy to talk about quantum measurement,
-             metrology, or a possible PhD.</p>
+          <p>The best way to reach me is by email. I am happy to talk about data science roles,
+             quantum measurement and metrology, or a possible PhD.</p>
           <div class="contact-links">
             <a href="mailto:campanellogabriele99@gmail.com">campanellogabriele99@gmail.com</a>
             <a href="https://github.com/gcampanello">github.com/gcampanello</a>
             <a href="https://www.linkedin.com/in/gabriele-campanello-5a834a300">LinkedIn</a>
-            <a href="cv.pdf">CV (PDF)</a>
+            <a href="CV_Gabriele_Campanello.pdf">CV (PDF)</a>
           </div>
         </div>
       </div>
