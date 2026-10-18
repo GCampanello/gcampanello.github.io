@@ -3,130 +3,268 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Gabriele Campanello, Physicist</title>
-<meta name="description" content="Gabriele Campanello, physicist with a background in quantum information and stochastic simulation. MSc in Physics, University of Milan. Looking for data science roles in Milan and PhD positions." />
-<meta name="theme-color" content="#0B0D12" />
+<title>Gabriele Campanello, data science and quantitative risk</title>
+<meta name="description" content="Physicist moving into data science, risk management and quantitative finance. MSc in Physics, University of Milan. Projects in Monte Carlo simulation, exact probability and statistical testing." />
+<meta name="theme-color" content="#FBFBFA" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Gabriele Campanello" />
+<meta property="og:description" content="Data science, risk management and quantitative finance. MSc in Physics, University of Milan." />
+<meta property="og:url" content="https://gcampanello.github.io/" />
+<meta property="og:image" content="https://gcampanello.github.io/og.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Gabriele Campanello: a Monte Carlo fan chart of one-year price paths with the 95% value at risk" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230F1B2D'/%3E%3Cpath d='M5 19 L10 16 L14 18 L19 11 L23 13 L27 7' fill='none' stroke='%23FBFBFA' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='26.5' cy='24.5' r='2.6' fill='%23E5533F'/%3E%3C/svg%3E" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Spectral:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=IBM+Plex+Mono:wght@400;500&family=Spectral:ital,wght@1,400&display=swap" rel="stylesheet" />
 <style>
   :root {
-    --void:        #0B0D12;
-    --panel:       #0E1118;
-    --bone:        #E8E6E1;
-    --dim:         #9DA0A9;
-    --faint:       #82858F;   /* 5.3:1 on --void — the floor for readable secondary text */
-    --teal:        #34D1C4;
-    --magenta:     #E0457B;
-    --rule:        rgba(232, 230, 225, 0.10);
-    --rule-strong: rgba(232, 230, 225, 0.18);
+    color-scheme: light;
 
+    /* the report: future work */
+    --paper:  #FBFBFA;
+    --wash:   #F1F3F6;
+    --ink:    #0F1B2D;
+    --ink-2:  #46536A;
+    --ink-3:  #5F6B80;
+    --rule:   #D8DDE5;
+    --loss:   #B42318;   /* used only for losses and the 5% tail */
+
+    /* the lab: physics background */
+    --lab:       #0F1B2D;
+    --lab-raise: #15253C;
+    --lab-line:  rgba(232, 230, 225, 0.16);
+    --bone:      #E8E6E1;
+    --lab-dim:   #A9B2C1;
+    --teal:      #34D1C4;
+    --magenta:   #E0457B;
+
+    --sans:  "Archivo", "Helvetica Neue", Arial, system-ui, sans-serif;
+    --mono:  "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
     --serif: "Spectral", Georgia, serif;
-    --sans:  "IBM Plex Sans", system-ui, sans-serif;
-    --mono:  "IBM Plex Mono", ui-monospace, monospace;
-    --maxw: 1000px;
+
+    --maxw: 1160px;
+    --gutter: 32px;
   }
 
   * { box-sizing: border-box; }
 
-  html {
-    color-scheme: dark;
-    -webkit-text-size-adjust: 100%;
-  }
+  html { -webkit-text-size-adjust: 100%; }
 
   body {
     margin: 0;
-    background: var(--void);
-    color: var(--bone);
+    background: var(--paper);
+    color: var(--ink);
     font-family: var(--sans);
     font-size: 17px;
-    line-height: 1.65;
+    line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
   }
 
-  ::selection { background: var(--teal); color: var(--void); }
+  ::selection { background: var(--ink); color: var(--paper); }
 
-  a { color: var(--teal); text-decoration: none; }
-  a:hover { text-decoration: underline; text-underline-offset: 3px; }
-  a:focus-visible {
-    outline: 2px solid var(--teal);
-    outline-offset: 3px;
+  a {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-color: #9AA6B8;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+    transition: text-decoration-color 0.15s;
   }
+  a:hover { text-decoration-color: currentColor; }
+  a:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; border-radius: 2px; }
 
   .wrap {
     max-width: var(--maxw);
     margin: 0 auto;
-    padding: 0 32px;
+    padding: 0 var(--gutter);
   }
 
-  /* ============================= hero ============================= */
-  .hero { padding-top: clamp(72px, 11vh, 130px); }
-
-  .kicker {
-    font-family: var(--mono);
-    font-size: 13px;
-    color: var(--dim);
-    margin: 0 0 22px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-  .kicker::before {
-    content: "";
-    width: 26px;
-    height: 1px;
-    background: var(--teal);
-    flex: none;
-  }
+  /* ============================== hero ============================== */
+  .hero { padding-top: clamp(56px, 10vh, 112px); }
 
   .name {
-    font-family: var(--serif);
-    font-weight: 500;
-    font-size: clamp(2.9rem, 8.2vw, 5.1rem);
-    line-height: 0.98;
-    letter-spacing: -0.02em;
-    margin: 0 0 28px;
+    font-weight: 760;
+    font-stretch: 118%;
+    font-size: clamp(2.6rem, 7.4vw, 5.75rem);
+    line-height: 0.94;
+    letter-spacing: -0.03em;
+    margin: 0 0 24px;
+  }
+
+  .role {
+    font-size: clamp(1.15rem, 2.2vw, 1.5rem);
+    font-weight: 560;
+    font-stretch: 106%;
+    line-height: 1.3;
+    letter-spacing: -0.005em;
+    margin: 0 0 16px;
+    max-width: 32em;
   }
 
   .lede {
-    font-size: clamp(1.06rem, 2.3vw, 1.24rem);
+    font-size: 1.125rem;
     line-height: 1.6;
-    color: var(--dim);
-    max-width: 36em;
-    margin: 0 0 34px;
+    color: var(--ink-2);
+    max-width: 39em;
+    margin: 0 0 28px;
   }
-  .lede strong { color: var(--bone); font-weight: 500; }
 
   .links {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px 26px;
-    font-family: var(--mono);
-    font-size: 13.5px;
+    align-items: center;
+    gap: 12px 24px;
+    font-weight: 560;
+    font-size: 16px;
   }
-  .links a {
-    color: var(--bone);
-    border-bottom: 1px solid var(--rule-strong);
-    padding-bottom: 2px;
-    transition: color 0.15s, border-color 0.15s;
-  }
-  .links a:hover {
+  .links a.cv {
+    background: var(--ink);
+    color: var(--paper);
     text-decoration: none;
-    color: var(--teal);
-    border-bottom-color: var(--teal);
+    padding: 9px 18px 10px;
+    border-radius: 3px;
+    transition: background 0.15s;
+  }
+  .links a.cv:hover { background: #24344C; }
+
+  /* -------------------------- live simulation -------------------------- */
+  .sim { margin: clamp(48px, 7vh, 76px) 0 0; }
+
+  .sim-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 236px;
+    border-top: 2px solid var(--ink);
+    border-bottom: 1px solid var(--rule);
   }
 
-  /* ======================= instrument readout ======================= */
-  .readout { margin: 60px 0 0; }
-
-  .screen {
+  .chart {
     position: relative;
-    height: clamp(186px, 24vw, 250px);
-    border: 1px solid var(--rule-strong);
+    height: clamp(300px, 31vw, 410px);
+    padding-top: 14px;
+  }
+  .chart canvas { display: block; width: 100%; height: 100%; }
+
+  .readout {
+    border-left: 1px solid var(--rule);
+    padding: 22px 0 20px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+  }
+  .readout p { margin: 0; }
+  .metric-name { font-size: 14px; font-weight: 600; color: var(--ink); margin-bottom: 6px !important; }
+  .metric-mc, .metric-ex { font-size: 13px; color: var(--ink-3); line-height: 1.5; }
+  .metric-mc .v, .metric-ex .v {
+    font-family: var(--mono);
+    font-variant-numeric: tabular-nums;
+    display: inline-block;
+    min-width: 4.4ch;
+    margin-right: 6px;
+  }
+  .metric-mc .v { font-size: 1.6rem; font-weight: 500; color: var(--ink); line-height: 1.25; }
+  .metric-ex .v { font-size: 1rem; color: var(--ink-2); }
+  .paths { margin-top: auto !important; font-size: 13px; color: var(--ink-3); }
+  .paths span { font-family: var(--mono); font-variant-numeric: tabular-nums; color: var(--ink-2); }
+
+  .sim-caption {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--ink-2);
+    max-width: 78ch;
+    margin: 14px 0 0;
+  }
+
+  /* ============================ sections ============================ */
+  .block { padding-top: clamp(80px, 11vh, 120px); }
+
+  h2 {
+    font-size: clamp(1.65rem, 2.8vw, 2.1rem);
+    font-weight: 720;
+    font-stretch: 112%;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    margin: 0 0 28px;
+  }
+
+  /* ----------------------------- projects ----------------------------- */
+  .project {
+    display: grid;
+    grid-template-columns: 230px minmax(0, 1fr);
+    grid-template-areas: "key title" "key desc";
+    grid-template-rows: auto 1fr;
+    column-gap: 44px;
+    padding: 34px 0 36px;
+    border-top: 1px solid var(--rule);
+  }
+  .project:last-of-type { border-bottom: 1px solid var(--rule); }
+  .project h3 { grid-area: title; }
+  .project .key { grid-area: key; }
+  .project .desc { grid-area: desc; }
+
+  .key { margin: 0; }
+  .key .num {
+    display: block;
+    font-size: clamp(2.5rem, 4.4vw, 3.4rem);
+    font-weight: 640;
+    font-stretch: 112%;
+    letter-spacing: -0.035em;
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+  }
+  .key .num-label {
+    display: block;
+    margin-top: 12px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--ink-2);
+  }
+
+  .project h3 {
+    font-size: 1.3rem;
+    font-weight: 660;
+    font-stretch: 104%;
+    letter-spacing: -0.01em;
+    line-height: 1.3;
+    margin: 0 0 12px;
+  }
+  .desc p { margin: 0 0 12px; max-width: 66ch; color: var(--ink-2); }
+  .desc .tools { font-size: 14.5px; color: var(--ink-3); }
+  .desc .go { margin: 16px 0 0; font-weight: 600; color: var(--ink); }
+
+  /* ------------------------- physics: the lab ------------------------- */
+  .lab {
+    background: var(--lab);
+    color: var(--bone);
+    margin-top: clamp(88px, 12vh, 128px);
+    padding: clamp(72px, 10vh, 104px) 0 clamp(72px, 10vh, 104px);
+  }
+  .lab h2 { color: var(--bone); }
+
+  .lab-intro {
+    font-size: 1.125rem;
+    color: var(--lab-dim);
+    max-width: 40em;
+    margin: 0 0 44px;
+  }
+
+  .lab-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+    gap: 44px;
+    align-items: start;
+  }
+
+  .scope { margin: 0; }
+  .screen {
+    height: clamp(200px, 21vw, 250px);
+    border: 1px solid var(--lab-line);
     background:
-      radial-gradient(120% 140% at 50% 0%, rgba(52, 209, 196, 0.05), transparent 62%),
-      var(--panel);
+      radial-gradient(120% 140% at 50% 0%, rgba(52, 209, 196, 0.06), transparent 62%),
+      var(--lab-raise);
     overflow: hidden;
   }
   .screen canvas {
@@ -136,135 +274,179 @@
     -webkit-mask-image: linear-gradient(to right, transparent 0, #000 5%);
             mask-image: linear-gradient(to right, transparent 0, #000 5%);
   }
-
-  .caption {
-    font-family: var(--mono);
-    font-size: 12px;
-    line-height: 1.65;
-    color: var(--faint);
-    margin: 14px 0 0;
-    max-width: 74ch;
-  }
-  .caption b { color: var(--dim); font-weight: 400; }
-
-  /* =========================== sections =========================== */
-  main { margin-top: clamp(80px, 12vh, 140px); }
-
-  section { border-top: 1px solid var(--rule); }
-
-  .grid {
-    display: grid;
-    grid-template-columns: 190px minmax(0, 1fr);
-    gap: 52px;
-    padding: 72px 0;
-    align-items: start;
+  .scope figcaption {
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: var(--lab-dim);
+    margin-top: 12px;
+    max-width: 66ch;
   }
 
-  h2 {
-    font-family: var(--serif);
-    font-weight: 400;
-    font-size: 1.42rem;
-    line-height: 1.25;
-    letter-spacing: -0.01em;
-    color: var(--bone);
-    margin: 0;
-    padding-top: 5px;
-  }
-
-  .body > p { margin: 0 0 18px; color: var(--dim); }
-  .body > p:last-child { margin-bottom: 0; }
-  .body strong { color: var(--bone); font-weight: 500; }
-
-  .items { list-style: none; margin: 0; padding: 0; }
-  .items li {
-    padding: 20px 0;
-    border-top: 1px solid var(--rule);
-  }
-  .items li:first-child { border-top: none; padding-top: 0; }
-  .items h3 {
-    font-family: var(--sans);
-    font-weight: 600;
-    font-size: 1.02rem;
-    color: var(--bone);
-    margin: 0 0 5px;
-  }
-  .items p { margin: 0; color: var(--faint); font-size: 0.96rem; }
-  .items p.more { margin-top: 10px; font-family: var(--mono); font-size: 13px; }
-
-  .thesis {
-    border-left: 2px solid var(--teal);
-    background: var(--panel);
-    padding: 26px 30px;
-  }
+  .thesis { border-left: 2px solid var(--teal); padding: 2px 0 2px 24px; }
   .thesis .title {
     font-family: var(--serif);
     font-style: italic;
     font-weight: 400;
-    font-size: 1.24rem;
+    font-size: 1.4rem;
     line-height: 1.35;
     color: var(--bone);
     margin: 0 0 12px;
   }
-  .thesis .sup {
-    font-family: var(--mono);
-    font-size: 12.5px;
-    color: var(--teal);
-    margin: 0 0 18px;
-  }
-  .thesis p:last-child { margin: 0; color: var(--dim); font-size: 0.98rem; }
+  .thesis .sup { font-size: 14px; color: var(--teal); margin: 0 0 16px; }
+  .thesis p:last-child { margin: 0; color: var(--lab-dim); font-size: 15.5px; }
 
+  .bridge-title {
+    font-size: 1.3rem;
+    font-weight: 660;
+    font-stretch: 104%;
+    letter-spacing: -0.01em;
+    margin: 64px 0 16px;
+  }
+
+  .bridge {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 6px;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  .bridge th {
+    text-align: left;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 0 22px 4px;
+  }
+  .bridge thead th:first-child { color: var(--lab-dim); }
+  .bridge thead th:last-child { color: var(--bone); }
+  .bridge td { width: 50%; padding: 16px 22px 17px; vertical-align: top; }
+  .bridge td:first-child {
+    background: var(--lab-raise);
+    color: var(--bone);
+    border: 1px solid var(--lab-line);
+    border-right: 0;
+  }
+  .bridge td:last-child { background: var(--paper); color: var(--ink); }
+
+  /* ----------------------------- skills ----------------------------- */
+  .skills {
+    display: grid;
+    grid-template-columns: 274px minmax(0, 1fr);
+    margin: 0;
+  }
+  .skills dt, .skills dd {
+    margin: 0;
+    padding: 15px 0 16px;
+    border-top: 1px solid var(--rule);
+  }
+  .skills dt { font-weight: 620; padding-right: 44px; }
+  .skills dd { color: var(--ink-2); }
+  .skills dt:last-of-type, .skills dd:last-of-type { border-bottom: 1px solid var(--rule); }
+
+  /* ---------------------- experience and education ---------------------- */
+  .cv-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 56px;
+  }
+  .col-title {
+    font-size: 1.05rem;
+    font-weight: 660;
+    font-stretch: 104%;
+    margin: 0 0 10px;
+  }
   .entry {
     display: grid;
-    grid-template-columns: 150px minmax(0, 1fr);
-    gap: 24px;
-    padding: 22px 0;
+    grid-template-columns: 112px minmax(0, 1fr);
+    gap: 18px;
+    padding: 18px 0 19px;
     border-top: 1px solid var(--rule);
   }
-  .entry:first-child { border-top: none; padding-top: 0; }
+  .entry:last-child { border-bottom: 1px solid var(--rule); }
   .entry .when {
-    font-family: var(--mono);
-    font-size: 12.5px;
-    color: var(--faint);
-    padding-top: 4px;
+    margin: 0;
+    padding-top: 1px;
+    font-size: 14px;
+    color: var(--ink-3);
+    font-variant-numeric: tabular-nums;
   }
-  .entry h3 {
-    font-family: var(--sans);
-    font-weight: 600;
-    font-size: 1.02rem;
-    color: var(--bone);
-    margin: 0 0 4px;
-  }
-  .entry .where { color: var(--dim); font-size: 0.96rem; margin: 0 0 4px; }
-  .entry .note { color: var(--faint); font-size: 0.9rem; margin: 0; }
+  .entry h4 { margin: 0 0 2px; font-size: 1rem; font-weight: 620; line-height: 1.4; }
+  .entry .where { margin: 0; font-size: 15px; color: var(--ink-2); }
+  .entry .note { margin: 6px 0 0; font-size: 14.5px; color: var(--ink-3); }
 
-  .contact-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px 30px;
-    font-family: var(--mono);
-    font-size: 13.5px;
-    margin-top: 18px;
+  /* ----------------------------- contact ----------------------------- */
+  .contact-text { margin: 0 0 14px; color: var(--ink-2); font-size: 1.125rem; }
+  .mail {
+    margin: 0 0 28px;
+    font-size: clamp(1.25rem, 3.4vw, 2.1rem);
+    font-weight: 640;
+    font-stretch: 106%;
+    letter-spacing: -0.015em;
+    overflow-wrap: anywhere;
   }
+  .mail a { text-decoration-thickness: 2px; text-underline-offset: 6px; }
 
   footer {
+    margin-top: clamp(88px, 12vh, 128px);
     border-top: 1px solid var(--rule);
-    padding: 32px 0 48px;
-    font-family: var(--mono);
-    font-size: 12px;
-    color: var(--faint);
+    padding: 26px 0 44px;
+    font-size: 13.5px;
+    color: var(--ink-3);
   }
-  footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+  footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px 24px; }
 
-  /* ========================== responsive ========================== */
-  @media (max-width: 760px) {
+  /* ============================ responsive ============================ */
+  @media (max-width: 900px) {
+    .sim-grid { grid-template-columns: 1fr; }
+    .readout {
+      border-left: 0;
+      border-top: 1px solid var(--rule);
+      padding: 16px 0 16px;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 14px 40px;
+    }
+    .paths { flex-basis: 100%; }
+    .lab-grid { grid-template-columns: 1fr; gap: 32px; }
+    .cv-grid { grid-template-columns: 1fr; gap: 44px; }
+  }
+
+  @media (max-width: 720px) {
+    :root { --gutter: 20px; }
     body { font-size: 16px; }
-    .wrap { padding: 0 22px; }
-    .readout { margin-top: 48px; }
-    .grid { grid-template-columns: 1fr; gap: 20px; padding: 52px 0; }
-    h2 { padding-top: 0; font-size: 1.3rem; }
-    .entry { grid-template-columns: 1fr; gap: 5px; }
-    .entry .when { padding-top: 0; }
-    .thesis { padding: 22px 24px; }
+    .lede, .contact-text, .lab-intro { font-size: 1.05rem; }
+    .chart { height: 270px; }
+    .project {
+      grid-template-columns: 1fr;
+      grid-template-areas: "title" "key" "desc";
+      grid-template-rows: auto;
+      padding: 28px 0 30px;
+    }
+    .project .key { margin: 4px 0 18px; }
+    .skills { grid-template-columns: 1fr; }
+    .skills dd { border-top: 0; padding-top: 0; }
+    .skills dt:last-of-type { border-bottom: 0; }
+    .entry { grid-template-columns: 1fr; gap: 4px; }
+
+    .bridge, .bridge tbody, .bridge tr, .bridge td { display: block; width: auto; }
+    .bridge thead {
+      position: absolute;
+      width: 1px; height: 1px;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      white-space: nowrap;
+    }
+    .bridge tr { margin-bottom: 12px; }
+    .bridge td { padding: 13px 16px 14px; }
+    .bridge td:first-child { border-right: 1px solid var(--lab-line); border-bottom: 0; }
+    .bridge td::before {
+      content: attr(data-label);
+      display: block;
+      font-size: 12.5px;
+      font-weight: 600;
+      margin-bottom: 3px;
+    }
+    .bridge td:first-child::before { color: var(--teal); }
+    .bridge td:last-child::before { color: var(--ink-3); }
   }
 </style>
 </head>
@@ -272,32 +454,47 @@
 
   <header class="hero">
     <div class="wrap">
-      <p class="kicker">Physics · Data science · Quantum information</p>
-      <h1 class="name">Gabriele<br />Campanello</h1>
+      <h1 class="name">Gabriele Campanello</h1>
+      <p class="role">Data science, risk management and quantitative finance</p>
       <p class="lede">
-        Physicist with a background in <strong>quantum information</strong> and
-        <strong>stochastic simulation</strong>. MSc in Physics from the University of Milan.
-        I am looking for a role as a data scientist in the Milan area, and I am also applying
-        for PhD positions in quantum information.
+        I model randomness in code: Monte Carlo simulation, exact probability calculations and
+        statistical tests on real data. I hold an MSc in Physics from the University of Milan
+        (110/110 cum laude) and I am looking for a first role in data science, risk or quantitative
+        finance in the Milan area.
       </p>
-      <nav class="links" aria-label="Contact and profiles">
+      <nav class="links" aria-label="CV and contact">
+        <a class="cv" href="CV_Gabriele_Campanello.pdf">CV (PDF)</a>
         <a href="mailto:campanellogabriele99@gmail.com">Email</a>
-        <a href="https://github.com/gcampanello">GitHub</a>
         <a href="https://www.linkedin.com/in/gabriele-campanello-5a834a300">LinkedIn</a>
-        <a href="CV_Gabriele_Campanello.pdf">CV (PDF)</a>
+        <a href="https://github.com/gcampanello">GitHub</a>
       </nav>
     </div>
 
-    <figure class="readout">
+    <figure class="sim">
       <div class="wrap">
-        <div class="screen">
-          <canvas id="ent" aria-hidden="true"></canvas>
+        <div class="sim-grid">
+          <div class="chart"><canvas id="fan" aria-hidden="true"></canvas></div>
+          <div class="readout">
+            <div class="metric">
+              <p class="metric-name">Value at risk, 95%</p>
+              <p class="metric-mc"><span class="v" id="var-mc">…</span>simulated</p>
+              <p class="metric-ex"><span class="v" id="var-ex">25.1%</span>exact</p>
+            </div>
+            <div class="metric">
+              <p class="metric-name">Expected shortfall, 95%</p>
+              <p class="metric-mc"><span class="v" id="es-mc">…</span>simulated</p>
+              <p class="metric-ex"><span class="v" id="es-ex">30.9%</span>exact</p>
+            </div>
+            <p class="paths"><span id="sim-n">0</span> of 4000 simulations</p>
+          </div>
         </div>
-        <figcaption class="caption">
-          Two continuously monitored modes under an <b>entangling unravelling</b>. The shared
-          measurement backaction correlates the two trajectories: the variance of their difference
-          falls below the uncorrelated level and entanglement builds, then decays once the coupling
-          is switched off. Simulated live in your browser, so the noise is different on every visit.
+        <figcaption class="sim-caption">
+          A Monte Carlo running in your browser: 4000 one-year prices of an asset that starts at 100,
+          with 6% drift and 20% volatility (geometric Brownian motion), one in ten drawn as a path.
+          The shaded bands and the dashed lines are exact, the paths and the histogram are simulated,
+          and paths that end in the worst 5% turn red. Value at risk is the loss exceeded in only 5% of
+          outcomes, expected shortfall the average loss within them. As the simulations accumulate, the
+          simulated values settle on the exact ones.
         </figcaption>
       </div>
     </figure>
@@ -305,129 +502,185 @@
 
   <main>
 
-    <section id="about">
-      <div class="wrap grid">
-        <h2>About</h2>
-        <div class="body">
-          <p>
-            I completed my MSc in Physics at the University of Milan in April 2026 (110/110 cum laude),
-            with a thesis in the theory of continuously monitored open quantum systems. The work was
-            about extracting information from noisy measurement records: which states a continuous
-            measurement lets you prepare, and how precisely it lets you estimate a parameter.
+    <section class="block" id="projects" aria-labelledby="projects-h">
+      <div class="wrap">
+        <h2 id="projects-h">Projects</h2>
+
+        <article class="project">
+          <h3>Expected value and risk in 10eLotto</h3>
+          <p class="key">
+            <span class="num">71.1%</span>
+            <span class="num-label">best return to player among all 60 possible bets, so no bet has a positive expected value</span>
           </p>
-          <p>
-            Most of that work was done in code: stochastic simulations in Python and QuTiP, with
-            probability, statistics and numerical methods at the core. I want to apply the same
-            skills to real data, and I am studying machine learning to get there. In parallel with
-            my studies I taught computer science in high school for two school years.
+          <div class="desc">
+            <p>
+              10eLotto is an Italian keno game with a draw every five minutes. I derived the exact payout
+              distribution of every possible bet from the hypergeometric law of the draws and the optional
+              Numero Oro, Doppio Oro and Extra add-ons, then checked it with Monte Carlo simulations, which
+              also show how quickly a budget runs out. Tests on 768 real draws, with the uniformity test
+              corrected for sampling without replacement, find no departure from chance: numbers that have
+              not come out for a while are no more likely than the others.
+            </p>
+            <p class="tools">Python (NumPy, SciPy, pandas, Matplotlib), web scraping, LaTeX</p>
+            <p class="go"><a href="papers/10eLotto_Campanello.pdf">Read the paper (PDF, in Italian)</a></p>
+          </div>
+        </article>
+
+        <article class="project">
+          <h3>Take-home pay and long-run wealth under Italian tax rules</h3>
+          <p class="key">
+            <span class="num">67.2%</span>
+            <span class="num-label">effective marginal rate at €38k gross: of each extra euro, 33 cents reach the employee</span>
           </p>
-        </div>
+          <div class="desc">
+            <p>
+              A model of an employee's pay in Milan under the 2026 rules: social security contributions,
+              income tax brackets and deductions, including the tax-wedge cut, and regional and municipal
+              surcharges. It maps the effective marginal rate, which stays above 55% between about €35k and
+              €44k of gross salary, measures the fiscal drag caused by brackets that do not follow inflation,
+              and projects savings over 30 years with a Monte Carlo of lognormal equity returns and AR(1)
+              inflation.
+            </p>
+            <p class="tools">Python (NumPy, pandas, Matplotlib)</p>
+          </div>
+        </article>
       </div>
     </section>
 
-    <section id="projects">
-      <div class="wrap grid">
-        <h2>Projects</h2>
-        <div class="body">
-          <ul class="items">
-            <li>
-              <h3>A statistical study of 10eLotto, an Italian keno game</h3>
-              <p>
-                Exact payout distribution for all 60 possible bets, from hypergeometric distributions
-                and the conditional Extra draw. No bet returns more than 71.1% of the stake. Monte Carlo
-                simulations confirm the exact results and estimate how long a budget lasts, and tests on
-                768 real draws (uniformity, corrected for sampling without replacement, and independence)
-                show no deviation from chance. Python, NumPy, SciPy, pandas, a web scraper for the draws.
-              </p>
-              <p class="more"><a href="papers/10eLotto_Campanello.pdf">Paper (PDF, in Italian)</a></p>
-            </li>
-            <li>
-              <h3>Quantum trajectory simulations for the master's thesis</h3>
-              <p>
-                Simulations of two distant qubits whose noise channels are monitored continuously,
-                built on stochastic master equations in QuTiP. Many trajectories are averaged to
-                compute entanglement, spin squeezing and the quantum Fisher information under
-                different measurement strategies.
-              </p>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </section>
+    <section class="lab" id="physics" aria-labelledby="physics-h">
+      <div class="wrap">
+        <h2 id="physics-h">Physics background</h2>
+        <p class="lab-intro">
+          My MSc thesis was in quantum information theory, on open quantum systems watched by a continuous
+          measurement. In practice it meant stochastic calculus, simulation and estimation from noisy data,
+          the same tools I want to use next.
+        </p>
 
-    <section id="research">
-      <div class="wrap grid">
-        <h2>Research interests</h2>
-        <div class="body">
-          <ul class="items">
-            <li>
-              <h3>Continuously monitored open quantum systems</h3>
-              <p>Stochastic master equations, quantum trajectories, and unravellings of the Lindblad dynamics.</p>
-            </li>
-            <li>
-              <h3>Quantum metrology</h3>
-              <p>Quantum Fisher information and measurement-based strategies for enhanced parameter estimation.</p>
-            </li>
-            <li>
-              <h3>Quantum state engineering</h3>
-              <p>Using continuous monitoring and feedback to prepare entangled and spin-squeezed states.</p>
-            </li>
-            <li>
-              <h3>Fault-tolerant quantum computing</h3>
-              <p>An emerging interest in quantum error correction and fault-tolerant quantum algorithms.</p>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </section>
+        <div class="lab-grid">
+          <figure class="scope">
+            <div class="screen"><canvas id="ent" aria-hidden="true"></canvas></div>
+            <figcaption>
+              Two continuously monitored modes under an entangling unravelling, simulated live. The shared
+              measurement noise correlates the two trajectories: entanglement builds, then fades once the
+              coupling is switched off.
+            </figcaption>
+          </figure>
 
-    <section id="thesis">
-      <div class="wrap grid">
-        <h2>Master's thesis</h2>
-        <div class="body">
           <div class="thesis">
             <p class="title">Entangling Unravellings for Quantum State Engineering and Quantum Metrology</p>
-            <p class="sup">Supervisors: Prof. Marco G. Genoni · Dr. Eoin O'Connor · University of Milan</p>
+            <p class="sup">Supervisors: Prof. Marco G. Genoni and Dr. Eoin O’Connor<br />University of Milan</p>
             <p>
-              The thesis studies how different continuous-measurement strategies, or unravellings, of an
-              open quantum system's dynamics can generate entanglement and spin squeezing, and quantifies
-              the resulting metrological advantage through the quantum Fisher information.
+              The thesis studies how different ways of continuously measuring an open quantum system, called
+              unravellings, can entangle two distant qubits and generate spin squeezing, and how much they
+              improve the precision of parameter estimation, measured by the quantum Fisher information.
+              Simulations in Python with QuTiP, built on stochastic master equations and quantum trajectories.
             </p>
           </div>
         </div>
+
+        <h3 class="bridge-title">What carries over</h3>
+        <table class="bridge">
+          <thead>
+            <tr><th scope="col">In my thesis</th><th scope="col">In finance and risk</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-label="In my thesis">Itô stochastic differential equations for a system under measurement</td>
+              <td data-label="In finance and risk">Models for prices, interest rates and volatility</td>
+            </tr>
+            <tr>
+              <td data-label="In my thesis">Quantum filtering: updating the state as each noisy measurement arrives</td>
+              <td data-label="In finance and risk">Filtering a hidden quantity, such as volatility, from a stream of prices</td>
+            </tr>
+            <tr>
+              <td data-label="In my thesis">Averages over thousands of simulated trajectories</td>
+              <td data-label="In finance and risk">Monte Carlo pricing and risk measures</td>
+            </tr>
+            <tr>
+              <td data-label="In my thesis">The quantum Fisher information as a limit on how precisely a parameter can be estimated</td>
+              <td data-label="In finance and risk">Estimation, and how uncertain an estimate is</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </section>
 
-    <section id="skills">
-      <div class="wrap grid">
-        <h2>Skills</h2>
-        <div class="body">
+    <section class="block" id="skills" aria-labelledby="skills-h">
+      <div class="wrap">
+        <h2 id="skills-h">Skills</h2>
+        <dl class="skills">
+          <dt>Programming</dt>
+          <dd>Python (NumPy, SciPy, pandas, Matplotlib, Jupyter), C++, Julia, Mathematica</dd>
+          <dt>Quantitative methods</dt>
+          <dd>Probability and statistics, Monte Carlo simulation, stochastic differential equations, hypothesis testing, machine learning</dd>
+          <dt>Data and tools</dt>
+          <dd>SQL with DuckDB, Power BI, Git, LaTeX</dd>
+          <dt>Languages</dt>
+          <dd>Italian (native), English (C1)</dd>
+        </dl>
+      </div>
+    </section>
 
-          <div class="entry">
-            <div class="when">Programming</div>
-            <div>
-              <p class="where">Python (NumPy, SciPy, pandas, Matplotlib, Jupyter), C++, Julia, Mathematica</p>
+    <section class="block" id="cv" aria-labelledby="cv-h">
+      <div class="wrap">
+        <h2 id="cv-h">Experience and education</h2>
+        <div class="cv-grid">
+
+          <div>
+            <h3 class="col-title">Experience</h3>
+            <div class="entries">
+              <div class="entry">
+                <p class="when">2025 – 2026</p>
+                <div>
+                  <h4>High school teacher, Computer Science</h4>
+                  <p class="where">IIS “A. Volta”, Lodi</p>
+                  <p class="note">Number systems, algorithms, spreadsheets, and programming in C++ and Python. External examiner in Automated Systems for the 2026 Italian State Exam.</p>
+                </div>
+              </div>
+              <div class="entry">
+                <p class="when">2022 – 2023</p>
+                <div>
+                  <h4>High school teacher, Telecommunications and Automated Systems</h4>
+                  <p class="where">ISII “G. Marconi”, Piacenza</p>
+                </div>
+              </div>
             </div>
           </div>
 
-          <div class="entry">
-            <div class="when">Data</div>
-            <div>
-              <p class="where">Probability and statistics, Monte Carlo methods, machine learning, SQL with DuckDB, Power BI</p>
-            </div>
-          </div>
-
-          <div class="entry">
-            <div class="when">Scientific</div>
-            <div>
-              <p class="where">QuTiP, Qiskit, LaTeX, Git</p>
-            </div>
-          </div>
-
-          <div class="entry">
-            <div class="when">Languages</div>
-            <div>
-              <p class="where">Italian (native), English (C1)</p>
+          <div>
+            <h3 class="col-title">Education</h3>
+            <div class="entries">
+              <div class="entry">
+                <p class="when">2023 – 2026</p>
+                <div>
+                  <h4>MSc in Physics, 110/110 cum laude</h4>
+                  <p class="where">University of Milan</p>
+                  <p class="note">Thesis in quantum information theory.</p>
+                </div>
+              </div>
+              <div class="entry">
+                <p class="when">2024 – 2025</p>
+                <div>
+                  <h4>Erasmus+ exchange semester</h4>
+                  <p class="where">Technical University of Munich (TUM)</p>
+                  <p class="note">Courses in English, including Essential Machine Learning for Physicists (30/30) and Quantum Information Theory.</p>
+                </div>
+              </div>
+              <div class="entry">
+                <p class="when">June 2024</p>
+                <div>
+                  <h4>4EU+ summer school, Quantum Information and Many-Body Theory</h4>
+                  <p class="where">QMATH, University of Copenhagen</p>
+                </div>
+              </div>
+              <div class="entry">
+                <p class="when">2019 – 2023</p>
+                <div>
+                  <h4>BSc in Physics, 108/110</h4>
+                  <p class="where">University of Milan</p>
+                  <p class="note">Thesis on QAM16 and APSK16 constellations for quantum communication.</p>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -435,89 +688,16 @@
       </div>
     </section>
 
-    <section id="education">
-      <div class="wrap grid">
-        <h2>Education</h2>
-        <div class="body">
-
-          <div class="entry">
-            <div class="when">2023 – 2026</div>
-            <div>
-              <h3>MSc in Physics, 110/110 cum laude</h3>
-              <p class="where">University of Milan</p>
-              <p class="note">Theoretical quantum information and open quantum systems.</p>
-            </div>
-          </div>
-
-          <div class="entry">
-            <div class="when">Winter 2024/25</div>
-            <div>
-              <h3>Erasmus+ exchange semester</h3>
-              <p class="where">Technical University of Munich (TUM)</p>
-              <p class="note">Courses in English, including Essential Machine Learning for Physicists (30/30) and Quantum Information Theory.</p>
-            </div>
-          </div>
-
-          <div class="entry">
-            <div class="when">June 2024</div>
-            <div>
-              <h3>4EU+ summer school, Quantum Information &amp; Many-Body Theory</h3>
-              <p class="where">QMATH, University of Copenhagen</p>
-            </div>
-          </div>
-
-          <div class="entry">
-            <div class="when">2019 – 2023</div>
-            <div>
-              <h3>BSc in Physics, 108/110</h3>
-              <p class="where">University of Milan</p>
-              <p class="note">Thesis on encoding based on QAM16 and APSK16 constellations for quantum communication.</p>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <section id="teaching">
-      <div class="wrap grid">
-        <h2>Teaching</h2>
-        <div class="body">
-
-          <div class="entry">
-            <div class="when">2025 – 2026</div>
-            <div>
-              <h3>High school teacher, Computer Science</h3>
-              <p class="where">IIS "A. Volta", Lodi</p>
-              <p class="note">Number systems, algorithms, spreadsheets, and programming in C++ and Python. External examiner in Automated Systems for the 2026 Italian State Exam.</p>
-            </div>
-          </div>
-
-          <div class="entry">
-            <div class="when">2022 – 2023</div>
-            <div>
-              <h3>High school teacher, Telecommunications and Automated Systems</h3>
-              <p class="where">ISII "G. Marconi", Piacenza</p>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <section id="contact">
-      <div class="wrap grid">
-        <h2>Get in touch</h2>
-        <div class="body">
-          <p>The best way to reach me is by email. I am happy to talk about data science roles,
-             quantum measurement and metrology, or a possible PhD.</p>
-          <div class="contact-links">
-            <a href="mailto:campanellogabriele99@gmail.com">campanellogabriele99@gmail.com</a>
-            <a href="https://github.com/gcampanello">github.com/gcampanello</a>
-            <a href="https://www.linkedin.com/in/gabriele-campanello-5a834a300">LinkedIn</a>
-            <a href="CV_Gabriele_Campanello.pdf">CV (PDF)</a>
-          </div>
-        </div>
+    <section class="block" id="contact" aria-labelledby="contact-h">
+      <div class="wrap">
+        <h2 id="contact-h">Contact</h2>
+        <p class="contact-text">Email is the quickest way to reach me. I can start right away.</p>
+        <p class="mail"><a href="mailto:campanellogabriele99@gmail.com">campanellogabriele99@gmail.com</a></p>
+        <nav class="links" aria-label="CV and profiles">
+          <a class="cv" href="CV_Gabriele_Campanello.pdf">CV (PDF)</a>
+          <a href="https://www.linkedin.com/in/gabriele-campanello-5a834a300">LinkedIn</a>
+          <a href="https://github.com/gcampanello">GitHub</a>
+        </nav>
       </div>
     </section>
 
@@ -525,50 +705,433 @@
 
   <footer>
     <div class="wrap">
-      <span>Gabriele Campanello</span>
-      <span>Built with plain HTML · hosted on GitHub Pages</span>
+      <span>Gabriele Campanello, 2026</span>
+      <span>Plain HTML on GitHub Pages. Both simulations run in your browser.</span>
     </div>
   </footer>
 
 <script>
 /*
-  Hero readout — two continuously monitored modes.
+  Hero: Monte Carlo of one-year price paths under geometric Brownian motion.
+
+  Log-prices take exact Gaussian steps, so every simulated path is a true sample of
+  the model. The quantile bands, the median, the 5% quantile curve and the terminal
+  density are computed in closed form; the paths and the histogram are the simulation.
+  The readout compares the Monte Carlo estimates of the 95% value at risk and expected
+  shortfall at the horizon with their exact values for the lognormal distribution:
+
+      VaR = 1 - q / S0,           q = S0 exp((mu - sigma^2/2) T + sigma sqrt(T) z_0.05)
+      ES  = 1 - exp(mu T) Phi(z_0.05 - sigma sqrt(T)) / 0.05
+*/
+(function () {
+  var canvas = document.getElementById('fan');
+  if (!canvas || !canvas.getContext) return;
+  var ctx = canvas.getContext('2d');
+
+  var INK3 = '#5F6B80', LOSS = '#B42318';
+  var LABEL = '500 11px Archivo, "Helvetica Neue", Arial, sans-serif';
+
+  var S0 = 100, MU = 0.06, SIG = 0.20, T = 1;
+  var DAYS = 252, STRIDE = 3, NPTS = DAYS / STRIDE + 1;     // 85 stored points per path
+  var NTOT = 400, NPRIME = 60, ALPHA = 0.05;
+  var EXTRA = 9;   // terminal-only samples per drawn path: 4000 simulations, one in ten drawn
+  var Z05 = -1.6448536269514722, Z25 = -0.6744897501960817;
+  var DRIFT = MU - 0.5 * SIG * SIG, DT = T / DAYS, SDT = SIG * Math.sqrt(DT);
+  var YMIN = 55, YMAX = 185;
+  var SPAWN = 42, DRAW = 850, HOLD = 4500, FADE = 900;    // milliseconds
+
+  function erfc(x) {
+    var z = Math.abs(x), t = 1 / (1 + 0.5 * z);
+    var r = t * Math.exp(-z * z - 1.26551223 + t * (1.00002368 + t * (0.37409196 + t * (0.09678418 +
+            t * (-0.18628806 + t * (0.27886807 + t * (-1.13520398 + t * (1.48851587 +
+            t * (-0.82215223 + t * 0.17087277)))))))));
+    return x >= 0 ? r : 2 - r;
+  }
+  function Phi(x) { return 0.5 * erfc(-x / Math.SQRT2); }
+  function quant(t, z) { return S0 * Math.exp(DRIFT * t + SIG * Math.sqrt(t) * z); }
+  function pdf(s) {
+    var v = SIG * Math.sqrt(T), z = (Math.log(s / S0) - DRIFT * T) / v;
+    return Math.exp(-0.5 * z * z) / (s * v * Math.sqrt(2 * Math.PI));
+  }
+
+  var Q05 = quant(T, Z05);
+  var VAR_EXACT = 1 - Q05 / S0;
+  var ES_EXACT = 1 - Math.exp(MU * T) * Phi(Z05 - SIG * Math.sqrt(T)) / ALPHA;
+
+  // histogram bins aligned so that the 5% quantile is a bin edge
+  var BIN = 5, B0 = Q05 - 4 * BIN, NBINS = 26, TAILBINS = 4;
+  var PDFMAX = 0;
+  for (var s0 = YMIN; s0 <= YMAX; s0 += 0.25) PDFMAX = Math.max(PDFMAX, pdf(s0));
+
+  function pct(x) { return (100 * x).toFixed(1) + '%'; }
+  var elN = document.getElementById('sim-n');
+  var elV = document.getElementById('var-mc');
+  var elE = document.getElementById('es-mc');
+  document.getElementById('var-ex').textContent = pct(VAR_EXACT);
+  document.getElementById('es-ex').textContent = pct(ES_EXACT);
+
+  function gauss() {
+    var u = 0, v = 0;
+    while (u === 0) u = Math.random();
+    while (v === 0) v = Math.random();
+    return Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * v);
+  }
+
+  function newPath() {
+    var pts = new Float32Array(NPTS), x = 0, k = 1;
+    pts[0] = S0;
+    for (var d = 1; d <= DAYS; d++) {
+      x += DRIFT * DT + SDT * gauss();
+      if (d % STRIDE === 0) pts[k++] = S0 * Math.exp(x);
+    }
+    var term = S0 * Math.exp(x);
+    return { pts: pts, term: term, tail: term < Q05, t0: 0 };
+  }
+
+  var done = [], flying = [], sorted = [], counts = new Float64Array(NBINS);
+  var spawned = 0, clock = 0, nextSpawn = 0, phase = 'run', phaseT = 0, fade = 1;
+
+  var layer = document.createElement('canvas'), lctx = layer.getContext('2d');
+  var W = 0, H = 0, dpr = 1, g = { l: 34, t: 6, b: 24, r: 0, hx: 0, hw: 0 };
+
+  function X(i) { return g.l + (i / (NPTS - 1)) * (g.r - g.l); }
+  function Y(v) { return g.t + (YMAX - v) / (YMAX - YMIN) * (H - g.t - g.b); }
+
+  function clipPlot(c) {
+    c.beginPath();
+    c.rect(g.l, g.t, g.r - g.l, H - g.t - g.b);
+    c.clip();
+  }
+
+  function trace(c, p, upto) {
+    var n = Math.floor(upto);
+    c.beginPath();
+    c.moveTo(X(0), Y(p.pts[0]));
+    for (var i = 1; i <= n; i++) c.lineTo(X(i), Y(p.pts[i]));
+    if (n < NPTS - 1) {
+      var f = upto - n, a = p.pts[n], b = p.pts[n + 1];
+      c.lineTo(X(n + f), Y(a + (b - a) * f));
+    }
+  }
+
+  function toLayer(p) {
+    lctx.save();
+    clipPlot(lctx);
+    trace(lctx, p, NPTS - 1);
+    lctx.lineJoin = 'round';
+    lctx.lineWidth = p.tail ? 1.1 : 1;
+    lctx.strokeStyle = p.tail ? 'rgba(180,35,24,0.55)' : 'rgba(15,27,45,0.11)';
+    lctx.stroke();
+    lctx.restore();
+  }
+
+  function rebuildLayer() {
+    lctx.setTransform(1, 0, 0, 1, 0, 0);
+    lctx.clearRect(0, 0, layer.width, layer.height);
+    lctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    for (var i = 0; i < done.length; i++) if (!done[i].tail) toLayer(done[i]);
+    for (var j = 0; j < done.length; j++) if (done[j].tail) toLayer(done[j]);
+  }
+
+  function readout() {
+    var n = sorted.length;
+    elN.textContent = n;
+    if (n < 100) { elV.textContent = '…'; elE.textContent = '…'; return; }
+    var k = Math.ceil(ALPHA * n), sum = 0;
+    for (var i = 0; i < k; i++) sum += sorted[i];
+    elV.textContent = pct(1 - sorted[k - 1] / S0);
+    elE.textContent = pct(1 - sum / k / S0);
+  }
+
+  function addSample(term) {
+    var lo = 0, hi = sorted.length;
+    while (lo < hi) {
+      var mid = (lo + hi) >> 1;
+      if (sorted[mid] < term) lo = mid + 1; else hi = mid;
+    }
+    sorted.splice(lo, 0, term);
+    var b = Math.floor((term - B0) / BIN);
+    if (b >= 0 && b < NBINS) counts[b]++;
+  }
+
+  function finish(p) {
+    done.push(p);
+    if (W) toLayer(p);
+    addSample(p.term);
+    // only the terminal value matters for the risk measures, so the paths that are not
+    // drawn are sampled directly from the exact distribution of the log-price at T
+    for (var j = 0; j < EXTRA; j++) addSample(S0 * Math.exp(DRIFT * T + SIG * Math.sqrt(T) * gauss()));
+  }
+
+  function fill(n) {
+    for (var i = 0; i < n; i++) { finish(newPath()); spawned++; }
+    rebuildLayer();
+    readout();
+  }
+
+  function completeAll() {
+    for (var i = 0; i < flying.length; i++) finish(flying[i]);
+    flying = [];
+    fill(NTOT - spawned);
+  }
+
+  function reset() {
+    done = []; flying = []; sorted = [];
+    for (var b = 0; b < NBINS; b++) counts[b] = 0;
+    spawned = 0; nextSpawn = clock; fade = 1; phase = 'run';
+    rebuildLayer();
+    readout();
+  }
+
+  function update(dt) {
+    clock += dt;
+    if (phase === 'run') {
+      while (spawned < NTOT && nextSpawn <= clock) {
+        var p = newPath();
+        p.t0 = nextSpawn;
+        flying.push(p);
+        spawned++;
+        nextSpawn += SPAWN;
+      }
+      var keep = [], changed = false;
+      for (var i = 0; i < flying.length; i++) {
+        if (clock - flying[i].t0 >= DRAW) { finish(flying[i]); changed = true; }
+        else keep.push(flying[i]);
+      }
+      flying = keep;
+      if (changed) readout();
+      if (spawned >= NTOT && flying.length === 0) { phase = 'hold'; phaseT = clock; }
+    } else if (phase === 'hold') {
+      if (clock - phaseT >= HOLD) { phase = 'fade'; phaseT = clock; }
+    } else {
+      fade = 1 - (clock - phaseT) / FADE;
+      if (fade <= 0) reset();
+    }
+  }
+
+  function band(zlo, zhi, a) {
+    ctx.beginPath();
+    for (var i = 0; i < NPTS; i++) ctx.lineTo(X(i), Y(quant(i / (NPTS - 1) * T, zhi)));
+    for (var j = NPTS - 1; j >= 0; j--) ctx.lineTo(X(j), Y(quant(j / (NPTS - 1) * T, zlo)));
+    ctx.closePath();
+    ctx.fillStyle = 'rgba(15,27,45,' + a + ')';
+    ctx.fill();
+  }
+
+  function exactLine(z, color, dash) {
+    ctx.beginPath();
+    for (var i = 0; i < NPTS; i++) {
+      var x = X(i), y = Y(quant(i / (NPTS - 1) * T, z));
+      if (i) ctx.lineTo(x, y); else ctx.moveTo(x, y);
+    }
+    ctx.setLineDash(dash);
+    ctx.strokeStyle = color;
+    ctx.lineWidth = 1.3;
+    ctx.stroke();
+    ctx.setLineDash([]);
+  }
+
+  function draw() {
+    if (!W || !H) return;
+    ctx.clearRect(0, 0, W, H);
+    var bottom = H - g.b;
+
+    // value grid and labels
+    ctx.font = LABEL;
+    ctx.lineWidth = 1;
+    ctx.textAlign = 'right';
+    ctx.textBaseline = 'middle';
+    for (var v = 60; v <= 180; v += 20) {
+      var y = Math.round(Y(v)) + 0.5;
+      ctx.strokeStyle = v === 100 ? 'rgba(15,27,45,0.20)' : 'rgba(15,27,45,0.07)';
+      ctx.beginPath(); ctx.moveTo(g.l, y); ctx.lineTo(g.r, y); ctx.stroke();
+      ctx.fillStyle = INK3;
+      ctx.fillText(String(v), g.l - 8, y);
+    }
+
+    // time axis
+    var by = Math.round(bottom) + 0.5;
+    ctx.strokeStyle = 'rgba(15,27,45,0.35)';
+    ctx.beginPath(); ctx.moveTo(g.l, by); ctx.lineTo(g.r, by); ctx.stroke();
+    ctx.textBaseline = 'alphabetic';
+    var xl = ['start', '3 months', '6 months', '9 months', '1 year'];
+    var narrow = (g.r - g.l) < 330;
+    for (var k = 0; k < 5; k++) {
+      if (narrow && (k === 1 || k === 3)) continue;
+      var xi = Math.round(X(k * (NPTS - 1) / 4)) + 0.5;
+      ctx.beginPath(); ctx.moveTo(xi, by); ctx.lineTo(xi, by + 4); ctx.stroke();
+      ctx.textAlign = k === 0 ? 'left' : (k === 4 ? 'right' : 'center');
+      ctx.fillText(xl[k], k === 0 ? xi - 0.5 : (k === 4 ? xi + 0.5 : xi), H - 4);
+    }
+
+    // exact fan, then the simulated paths
+    ctx.save();
+    clipPlot(ctx);
+    band(Z05, -Z05, 0.05);
+    band(Z25, -Z25, 0.07);
+    ctx.globalAlpha = Math.max(0, fade);
+    ctx.drawImage(layer, 0, 0, W, H);
+    ctx.globalAlpha = 1;
+    ctx.lineJoin = 'round';
+    for (var f = 0; f < flying.length; f++) {
+      var p = flying[f];
+      var u = Math.min(1, Math.max(0, (clock - p.t0) / DRAW)), upto = u * (NPTS - 1);
+      trace(ctx, p, upto);
+      ctx.strokeStyle = 'rgba(15,27,45,0.55)';
+      ctx.lineWidth = 1.2;
+      ctx.stroke();
+      var n = Math.floor(upto), fr = upto - n;
+      var hv = n < NPTS - 1 ? p.pts[n] + (p.pts[n + 1] - p.pts[n]) * fr : p.pts[NPTS - 1];
+      ctx.beginPath();
+      ctx.arc(X(upto), Y(hv), 1.9, 0, Math.PI * 2);
+      ctx.fillStyle = '#0F1B2D';
+      ctx.fill();
+    }
+    exactLine(0, 'rgba(15,27,45,0.62)', [5, 4]);
+    exactLine(Z05, 'rgba(180,35,24,0.9)', [3, 4]);
+    ctx.restore();
+
+    // distribution at the horizon: simulated histogram and exact density
+    var hx = Math.round(g.hx) + 0.5, hw = g.hw, nn = sorted.length;
+    ctx.strokeStyle = 'rgba(15,27,45,0.35)';
+    ctx.beginPath(); ctx.moveTo(hx, g.t); ctx.lineTo(hx, bottom); ctx.stroke();
+    if (nn) {
+      ctx.globalAlpha = Math.max(0, fade);
+      for (var b = 0; b < NBINS; b++) {
+        if (!counts[b]) continue;
+        var lo = B0 + b * BIN, hi = lo + BIN;
+        if (hi <= YMIN || lo >= YMAX) continue;
+        var len = Math.min(hw, counts[b] / (nn * BIN) / PDFMAX * hw * 0.9);
+        var yt = Y(Math.min(hi, YMAX)), yb = Y(Math.max(lo, YMIN));
+        ctx.fillStyle = b < TAILBINS ? 'rgba(180,35,24,0.78)' : 'rgba(15,27,45,0.22)';
+        ctx.fillRect(hx + 0.5, yt + 0.5, len, Math.max(1, yb - yt - 1));
+      }
+      ctx.globalAlpha = 1;
+    }
+    ctx.beginPath();
+    for (var sv = YMIN; sv <= YMAX; sv += 1) {
+      var px = hx + 0.5 + pdf(sv) / PDFMAX * hw * 0.9, py = Y(sv);
+      if (sv === YMIN) ctx.moveTo(px, py); else ctx.lineTo(px, py);
+    }
+    ctx.strokeStyle = 'rgba(15,27,45,0.72)';
+    ctx.lineWidth = 1.2;
+    ctx.stroke();
+
+    var yq = Math.round(Y(Q05)) + 0.5;
+    ctx.setLineDash([3, 3]);
+    ctx.strokeStyle = LOSS;
+    ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.moveTo(g.r, yq); ctx.lineTo(hx + hw, yq); ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.font = LABEL;
+    var label = 'VaR 95%', tw = ctx.measureText(label).width;
+    ctx.fillStyle = 'rgba(251,251,250,0.92)';
+    ctx.fillRect(hx + hw - tw - 4, yq - 17, tw + 4, 14);
+    ctx.fillStyle = LOSS;
+    ctx.textAlign = 'right';
+    ctx.textBaseline = 'bottom';
+    ctx.fillText(label, hx + hw, yq - 4);
+  }
+
+  function resize() {
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    W = canvas.clientWidth;
+    H = canvas.clientHeight;
+    canvas.width = Math.round(W * dpr);
+    canvas.height = Math.round(H * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    layer.width = canvas.width;
+    layer.height = canvas.height;
+    var hist = Math.max(62, Math.min(150, W * 0.16));
+    g.r = W - hist - 12;
+    g.hx = g.r + 12;
+    g.hw = hist - 2;
+    rebuildLayer();
+  }
+
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+  var raf = null, last = 0, onScreen = true;
+
+  function frame(ts) {
+    raf = requestAnimationFrame(frame);
+    if (last && ts - last < 33) return;   // about 30 fps
+    var dt = last ? Math.min(ts - last, 100) : 16;
+    last = ts;
+    update(dt);
+    draw();
+  }
+  function play() {
+    if (raf === null && onScreen && !document.hidden && !reduce.matches) {
+      last = 0;
+      raf = requestAnimationFrame(frame);
+    }
+  }
+  function pause() {
+    if (raf !== null) { cancelAnimationFrame(raf); raf = null; }
+  }
+
+  resize();
+  if (reduce.matches) completeAll(); else fill(NPRIME);
+  draw();
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(draw);
+  play();
+
+  var rt = null;
+  window.addEventListener('resize', function () {
+    clearTimeout(rt);
+    rt = setTimeout(function () { resize(); draw(); }, 120);
+  });
+  document.addEventListener('visibilitychange', function () {
+    if (document.hidden) pause(); else play();
+  });
+  if (typeof reduce.addEventListener === 'function') {
+    reduce.addEventListener('change', function () {
+      if (reduce.matches) { pause(); completeAll(); draw(); } else play();
+    });
+  }
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (entries) {
+      onScreen = entries[0].isIntersecting;
+      if (onScreen) play(); else pause();
+    }, { threshold: 0 }).observe(canvas);
+  }
+})();
+
+/*
+  Physics band: two continuously monitored modes.
 
   Both modes are damped at rate GAMMA and driven by noise of fixed total power SIG.
-  A slow cycle moves that power between a *shared* channel (measurement backaction
-  common to both modes) and *local* channels. When the shared channel dominates, the
+  A slow cycle moves that power between a shared channel (measurement backaction
+  common to both modes) and local channels. When the shared channel dominates, the
   two trajectories lock together.
 
-  The conditional means a, b are stochastic — one noise realisation, redrawn on every
+  The conditional means a, b are stochastic, one noise realisation redrawn on every
   visit. The conditional covariance is not: for a linear Gaussian system it obeys a
-  deterministic recursion, independent of the noise. So the entanglement trace is
-  computed exactly rather than estimated from the trajectories, which is both the
-  physically correct statement and the reason the curve is smooth.
+  deterministic recursion, independent of the noise, so the entanglement trace is
+  computed exactly rather than estimated from the trajectories.
 
       E = 1 - Var(a-b) / (Var a + Var b) = 2*Vab / (Vaa + Vbb)
-
-  E -> 0 when the shared channel is off, and -> CMAX^2 = 0.92 when it dominates.
 */
 (function () {
   var canvas = document.getElementById('ent');
   if (!canvas || !canvas.getContext) return;
   var ctx = canvas.getContext('2d');
 
-  var TEAL = '#34D1C4', MAG = '#E0457B', BONE = '#E8E6E1', FAINT = '#82858F';
+  var TEAL = '#34D1C4', MAG = '#E0457B', BONE = '#E8E6E1', DIM = '#A9B2C1';
 
   var N = 480;
   var xa = new Float64Array(N), xb = new Float64Array(N), ee = new Float64Array(N);
   var filled = 0;
 
-  var GAMMA  = 0.02;                                        // damping per step
-  var SIG    = 0.17;                                        // total noise amplitude, conserved
-  var CMAX   = Math.sqrt(0.92);                             // max share sent down the common channel
+  var GAMMA  = 0.02;
+  var SIG    = 0.17;
+  var CMAX   = Math.sqrt(0.92);
   var G2     = (1 - GAMMA) * (1 - GAMMA);
-  var SDX    = SIG / Math.sqrt(2 * GAMMA - GAMMA * GAMMA);  // steady-state sd of each mode
-  var PERIOD = 1000;                                        // steps per on/off cycle
+  var SDX    = SIG / Math.sqrt(2 * GAMMA - GAMMA * GAMMA);
+  var PERIOD = 1000;
 
-  var a = 0, b = 0;                 // conditional means — stochastic
-  var Vaa = 0, Vbb = 0, Vab = 0;    // conditional covariance — deterministic
+  var a = 0, b = 0;
+  var Vaa = 0, Vbb = 0, Vab = 0;
   var s = 0;
 
   function gauss() {
@@ -586,11 +1149,10 @@
   function step() {
     var ph = (s % PERIOD) / PERIOD;
     var ramp = Math.min(smoothstep(0.08, 0.32, ph), 1 - smoothstep(0.76, 0.94, ph));
-
     var kS = SIG * CMAX * ramp;
     var kL = Math.sqrt(Math.max(0, SIG * SIG - kS * kS));
 
-    var dWs = gauss();                                 // the shared measurement record
+    var dWs = gauss();
     a += -GAMMA * a + kS * dWs + kL * gauss();
     b += -GAMMA * b + kS * dWs + kL * gauss();
 
@@ -637,14 +1199,14 @@
       return yc - z * (amp / 2.8);
     }
 
-    ctx.strokeStyle = 'rgba(232,230,225,0.045)';
+    ctx.strokeStyle = 'rgba(232,230,225,0.05)';
     ctx.lineWidth = 1;
-    for (var g = 1; g < 8; g++) {
-      var gx = Math.round((g / 8) * W) + 0.5;
+    for (var gi = 1; gi < 8; gi++) {
+      var gx = Math.round((gi / 8) * W) + 0.5;
       ctx.beginPath(); ctx.moveTo(gx, padT); ctx.lineTo(gx, eBase); ctx.stroke();
     }
 
-    ctx.strokeStyle = 'rgba(232,230,225,0.13)';
+    ctx.strokeStyle = 'rgba(232,230,225,0.14)';
     ctx.setLineDash([2, 5]);
     [yA, yB].forEach(function (y) {
       ctx.beginPath();
@@ -654,7 +1216,7 @@
     });
     ctx.setLineDash([]);
 
-    ctx.strokeStyle = 'rgba(232,230,225,0.10)';
+    ctx.strokeStyle = 'rgba(232,230,225,0.12)';
     ctx.beginPath();
     ctx.moveTo(0, Math.round(eBase) + 0.5);
     ctx.lineTo(W, Math.round(eBase) + 0.5);
@@ -711,7 +1273,7 @@
     dot(eBase - ee[N - 1] * eh, BONE);
 
     ctx.font = '500 11px "IBM Plex Mono", ui-monospace, monospace';
-    ctx.fillStyle = FAINT;
+    ctx.fillStyle = DIM;
     ctx.textBaseline = 'alphabetic';
     ctx.fillText('mode A', 14, yA - amp - 7);
     ctx.fillText('mode B', 14, yB - amp - 7);
@@ -719,53 +1281,51 @@
   }
 
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
-  var raf = null, last = 0, onScreen = true;
+  var raf = null, last = 0, onScreen = false;
 
   function frame(ts) {
     raf = requestAnimationFrame(frame);
-    if (ts - last < 33) return;   // ~30 fps: smooth enough, half the battery cost
+    if (ts - last < 33) return;
     last = ts;
     step();
     draw();
   }
-
   function play() {
     if (raf === null && onScreen && !document.hidden && !reduce.matches) {
       last = 0;
       raf = requestAnimationFrame(frame);
     }
   }
-
   function pause() {
     if (raf !== null) { cancelAnimationFrame(raf); raf = null; }
   }
 
   resize();
-  for (var i = 0; i < N; i++) step();   // prime the strip so it opens full, mid-cycle
+  for (var i = 0; i < N; i++) step();
   draw();
-  if (!reduce.matches) play();
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(draw);
 
   var rt = null;
   window.addEventListener('resize', function () {
     clearTimeout(rt);
     rt = setTimeout(function () { resize(); draw(); }, 120);
   });
-
   document.addEventListener('visibilitychange', function () {
     if (document.hidden) pause(); else play();
   });
-
   if (typeof reduce.addEventListener === 'function') {
     reduce.addEventListener('change', function () {
       if (reduce.matches) pause(); else play();
     });
   }
-
   if ('IntersectionObserver' in window) {
     new IntersectionObserver(function (entries) {
       onScreen = entries[0].isIntersecting;
       if (onScreen) play(); else pause();
     }, { threshold: 0 }).observe(canvas);
+  } else {
+    onScreen = true;
+    play();
   }
 })();
 </script>
